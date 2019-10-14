@@ -20,6 +20,11 @@ public class Profesor {
     private float mediaAlumnos; 
     private String foto;
 
+    public Profesor()
+    {
+        
+    }
+    
     public Profesor(String dni, String nombre, int edad, GregorianCalendar fechaIncorporacion, float mediaAlumnos, String foto) {
         this.dni = dni;
         this.nombre = nombre;
@@ -57,8 +62,10 @@ public class Profesor {
         return fechaIncorporacion;
     }
 
-    public void setFechaIncorporacion(GregorianCalendar fechaIncorporacion) {
+    public void setFechaIncorporacion(GregorianCalendar fechaIncorporacion, Date d) {
         this.fechaIncorporacion = fechaIncorporacion;
+        this.fechaIncorporacion.setTime(d);
+       
     }
 
     public float getMediaAlumnos() {
