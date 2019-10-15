@@ -1,25 +1,32 @@
  
 package Vista;
 
+import Controlador.GestionBD;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 
 public class Conexion extends javax.swing.JPanel {
 
+    private VentanaPrincipal venP;
     
-    public Conexion() {
+    public Conexion(VentanaPrincipal p) {
         initComponents();
+        
+        venP=p;
         
         reset();
     }
     
     public void reset()
     {
-        jLabelContraseña.setText("");
+        jTextFieldContraseña.setText("");
     }
 
    
     public String enviarContr()
     {
-        return jLabelContraseña.getText();
+        return jTextFieldContraseña.getText();
     }
     
     @SuppressWarnings("unchecked")
@@ -108,8 +115,25 @@ public class Conexion extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        //llamar a metodo que recibe la contraseña
-        //elMEtodo(enviarContr);
+        
+        if(GestionBD.connectToDataBase(enviarContr()))
+        {
+            //poner boton menu verde
+            venP.setjMenuConexion(Color.green);
+            //habilitar botones menu
+            venP.getjMenuVisualizar().setEnabled(true);
+            venP.getjMenuAcerca().setEnabled(true);
+            //poner invisible el de conexion, deberia llamar directamente al visiualizar
+            venP.getJPanelConexion().setVisible(false);
+            venP.setContentPane(venP.getJPanelVisualizar());
+            reset();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "La contraseña es incorrecta");
+            reset();
+            venP.reset();//En principio no hace falta llamarlo
+        }
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
