@@ -70,6 +70,25 @@ public class GestionBD {
          return stmt;
     }
     
+    public static Statement getAlumnoStatement()
+    {
+        Statement stmt = null;
+        
+        try
+        {
+            //el statement debe ser asi, de lo contrario no se podrian
+            //insertar elementos en las tablas, daria error
+                stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY,
+                                            ResultSet.CONCUR_UPDATABLE);
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("\nError al crear el statement");
+        }
+         
+         return stmt;
+    }
+    
     public static boolean getDBConnectionState()
     {
         return connected;

@@ -18,6 +18,9 @@ public class GestionProfesor {
     private ResultSet rSet;
     private Statement profStatement;
     
+    private int totalRowNumber;
+    private int actualRowNumber;
+    
     public GestionProfesor(Statement stmt)
     {
         profStatement = stmt;
@@ -26,6 +29,10 @@ public class GestionProfesor {
         {
             rSet = stmt.executeQuery("SELECT dni, nombre, edad, fecha_incorporacion,"
                     + " media_alumnos, foto FROM profesor");
+            
+            rSet.last();
+            totalRowNumber = rSet.getRow();
+            rSet.beforeFirst();
         }
         catch(SQLException ex)
         {
@@ -53,6 +60,8 @@ public class GestionProfesor {
                 p.setMediaAlumnos(rSet.getFloat("media_alumnos"));
                 
                 p.setFoto(rSet.getString("foto"));
+                
+                actualRowNumber = rSet.getRow();
             }
         }
         catch(SQLException ex)
@@ -83,6 +92,8 @@ public class GestionProfesor {
                 p.setMediaAlumnos(rSet.getFloat("media_alumnos"));
                 
                 p.setFoto(rSet.getString("foto"));
+                
+                actualRowNumber = rSet.getRow();
             }
         }
         catch(SQLException ex)
@@ -113,6 +124,44 @@ public class GestionProfesor {
         {
             
         }
+    }
+    
+    //devuelve true si el profesor que estamos viendo ahora mismo es el ultimo
+    //de la lista
+    public boolean isLastProfesor()
+    {
+        if(getActualRowNumber() == getTotalRowNumber())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    //devuelve true si el profesor que estamos viendo ahora mismo es el primero de la
+    //lista
+    public boolean isFirstProfesor()
+    {
+        if(getActualRowNumber() == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public int getTotalRowNumber()
+    {
+        return totalRowNumber;
+    }
+    
+    public int getActualRowNumber()
+    {
+        return actualRowNumber;
     }
     
 }
