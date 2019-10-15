@@ -2,6 +2,7 @@
 package Vista;
 
 import Controlador.GestionBD;
+import Controlador.GestionProfesor;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -118,14 +119,17 @@ public class Conexion extends javax.swing.JPanel {
         
         if(GestionBD.connectToDataBase(enviarContr()))
         {
+            venP.setGestionProf(new GestionProfesor(GestionBD.getPreofesorStatement()));
             //poner boton menu verde
             venP.setjMenuConexion(Color.green);
             //habilitar botones menu
-            venP.getjMenuVisualizar().setEnabled(true);
-            venP.getjMenuAcerca().setEnabled(true);
+            venP.getMainMenu().setEnabled(true);
+
             //poner invisible el de conexion, deberia llamar directamente al visiualizar
             venP.getJPanelConexion().setVisible(false);
-            venP.setContentPane(venP.getJPanelVisualizar());
+            //le decimso a la ventana principal que coloque el panel
+            //visualizar y lo haga visible
+            venP.cambiarAVisualizar();
             reset();
         }
         else
