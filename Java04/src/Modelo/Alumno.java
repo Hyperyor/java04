@@ -51,8 +51,10 @@ public class Alumno {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(GregorianCalendar fechaNacimiento) {
+    public void setFechaNacimiento(GregorianCalendar fechaNacimiento, Date d) {
+      
         this.fechaNacimiento = fechaNacimiento;
+        this.fechaNacimiento.setTime(d);
     }
 
     public String getProAlumno() {

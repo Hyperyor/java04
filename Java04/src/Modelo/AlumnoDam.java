@@ -15,6 +15,11 @@ public class AlumnoDam extends Alumno{
     
     private float notaMovil;
     
+    public AlumnoDam()
+    {
+        
+    }
+    
     public AlumnoDam(int codigoAlumno, String apeNom, GregorianCalendar fechaNacimiento, String proAlumno) {
         super(codigoAlumno, apeNom, fechaNacimiento, proAlumno);
     }

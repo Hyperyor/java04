@@ -116,9 +116,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         visualizarMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(600, 500));
-        setMinimumSize(new java.awt.Dimension(600, 500));
-        setPreferredSize(new java.awt.Dimension(600, 500));
+        setMaximumSize(new java.awt.Dimension(750, 575));
+        setMinimumSize(new java.awt.Dimension(750, 575));
+        setPreferredSize(new java.awt.Dimension(750, 575));
 
         jMenuConexion.setText("Conexion ");
         jMenuConexion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -154,7 +154,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +172,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             if(yes==0)
             {
                 GestionBD.closeConnectionToDataBase();
+                //resetea la ventana
                 reset();
+                //resetea el panel visualizar por si se encuentra en el panel insertar alumno
+                JPanelVisualizar.reset();
                 
             }
         }
@@ -190,7 +193,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         {
             JPanelConexion.setVisible(false);
             JPanelVisualizar.setVisible(true);
+            //resetea el panel visualizar
+            JPanelVisualizar.reset();
             setContentPane(JPanelVisualizar);
+            
         }
     }//GEN-LAST:event_visualizarMenuItemActionPerformed
 

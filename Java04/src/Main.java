@@ -1,13 +1,15 @@
 
+import Controlador.GestionAlumno;
 import Controlador.GestionBD;
 import Controlador.GestionProfesor;
-import Modelo.Profesor;
+import Modelo.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -39,7 +41,11 @@ public class Main {
         
         GestionProfesor gp = new GestionProfesor(GestionBD.getPreofesorStatement());
         
+        System.out.println("\nNumero total de profesores: " + gp.getTotalRowNumber());
+        
         Profesor p = gp.getNextProf();
+        
+        System.out.println("\nFila actual: " + gp.getActualRowNumber());
         
         System.out.println("\nDNI del primer profesor: " + p.getDni());
         System.out.println("\nMedia de alumnos del primer profesor: " + p.getMediaAlumnos());
@@ -50,18 +56,41 @@ public class Main {
         
         Profesor pe = gp.getNextProf();
         
+        System.out.println("\nFila actual: " + gp.getActualRowNumber());
+        
         System.out.println("\nDNI del segundo profesor: " + pe.getDni());
         System.out.println("\nMedia de alumnos del segundo profesor: " + pe.getMediaAlumnos());
         
         Profesor pi = gp.getNextProf();
         
+        System.out.println("\nFila actual: " + gp.getActualRowNumber());
+        
         System.out.println("\nDNI del tercer profesor: " + pi.getDni());
         System.out.println("\nMedia de alumnos del tercer profesor: " + pi.getMediaAlumnos());
         
-        Profesor po = gp.getNextProf();
+        Profesor po = gp.getPreviousProf(); //con esto nos saldria el tercer profesor
+        
+        System.out.println("\nFila actual: " + gp.getActualRowNumber());
         
         System.out.println("\nDNI del cuarto profesor: " + po.getDni());
         System.out.println("\nMedia de alumnos del cuarto profesor: " + po.getMediaAlumnos());
+        
+        GestionAlumno gA = new GestionAlumno(GestionBD.getAlumnoStatement());
+        
+        ArrayList<Alumno> al = gA.getListadoAlumnos();
+        
+        for (int i = 0; i < al.size(); i++) {
+            
+            Alumno alumn = al.get(i);
+            
+            System.out.println("\nCodigo del alumno: " + alumn.getCodigoAlumno());
+        }
+        
+        //AlumnoDaw al1 = (AlumnoDaw)al.get(0);
+        
+        //al1.setCodigoAlumno(3);
+        
+        //gA.insertAlumn(al1);
         
 //        po.setMediaAlumnos(0);
 //        

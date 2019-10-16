@@ -3,10 +3,13 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[600, 500]"/>
+      <Dimension value="[750, 575]"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[600, 500]"/>
+      <Dimension value="[750, 575]"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[750, 575]"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -24,15 +27,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelProfesor" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanelProfesor" alignment="0" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <Component id="jPanelAlumnos" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jPanelInsertarAlum" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -41,69 +41,288 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelProfesor" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanelProfesor" pref="563" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Component id="jPanelAlumnos" alignment="1" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jPanelInsertarAlum" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanelProfesor">
+    <Container class="javax.swing.JPanel" name="jPanelInsertarAlum">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[600, 500]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[600, 500]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[600, 500]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelDni" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelEdad" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelFechaIncor" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelMedia" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jTextFieldEdad" pref="170" max="32767" attributes="0"/>
-                      <Component id="jTextFieldNombre" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jTextFieldDni" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jTextFieldFecha" max="32767" attributes="0"/>
-                      <Component id="jTextFieldMedia" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="jPanelImagen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                  <Component id="jButtonMedia" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="72" max="32767" attributes="0"/>
-                  <Component id="jButtonAlumnos" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                  <Component id="jButtonDam" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                  <Component id="jButtonDaw" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="111" max="32767" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonAtras" min="-2" pref="80" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jButtonSig" min="-2" pref="80" max="-2" attributes="0"/>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanelInsertarDam" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonDam" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonDaw" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="436" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="88" max="32767" attributes="0"/>
+                      <Component id="jPanelInsertarDam" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="92" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="jButtonDam">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nuevo Dam"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonDaw">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nuevo Daw"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JPanel" name="jPanelInsertarDam">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jLabelInsertarNombre" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jLabelInsertarCodigoAlumno" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jLabelInsertarFechaIncorporacion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabelInsertarProfesor" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabelInsertarNota" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jTextFieldInsertarNombre" min="-2" pref="161" max="-2" attributes="0"/>
+                          <Component id="jTextFieldInsertarCodigo" min="-2" pref="161" max="-2" attributes="0"/>
+                          <Component id="jTextFieldInsertarFechaIncorporacion" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                          <Component id="jTextFieldInsertarProfesor" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                          <Component id="jTextFieldInsertarNota" min="-2" pref="161" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="107" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelCabecera" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="jLabelCabecera" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelInsertarCodigoAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldInsertarCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelInsertarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldInsertarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelInsertarFechaIncorporacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldInsertarFechaIncorporacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelInsertarProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldInsertarProfesor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelInsertarNota" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldInsertarNota" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabelInsertarCodigoAlumno">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="C&#xd3;DIGO"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelInsertarNombre">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NOMBRE Y APELLIDOS"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelInsertarFechaIncorporacion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="FECHA DE INCORPORACI&#xd3;N"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelInsertarProfesor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="PROFESOR"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelInsertarNota">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NOTA"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldInsertarCodigo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jTextField1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldInsertarNombre">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jTextField2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldInsertarFechaIncorporacion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jTextField3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldInsertarProfesor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jTextField4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldInsertarNota">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jTextField5"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCabecera">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="18" style="1"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Insertar alumno de Dam"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanelProfesor">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[750, 550]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[750, 550]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[750, 550]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
+                  <Component id="jButtonInsertarAlum" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanelImagen" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jTextFieldDni" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAtras" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="jButtonMedia" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jButtonAlumnos" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="jButtonSig" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jPanelAlumnos" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabelDni" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelEdad" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelFechaIncor" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelMedia" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jButtonActualizarDatos" min="-2" pref="121" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jTextFieldNombre" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldDni" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldEdad" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldFecha" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldMedia" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jPanelImagen" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelDni" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldDni" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextFieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -124,18 +343,22 @@
                               <Component id="jLabelMedia" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="jPanelImagen" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="jButtonActualizarDatos" min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonAtras" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="jButtonSig" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonMedia" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonAlumnos" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonInsertarAlum" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jPanelAlumnos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -146,12 +369,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="223" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="176" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -165,16 +388,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver alumnos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAlumnosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAtras">
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAtrasActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSig">
           <Properties>
             <Property name="text" type="java.lang.String" value="&gt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSigActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldDni">
           <Properties>
@@ -226,53 +458,62 @@
             <Property name="text" type="java.lang.String" value="MEDIA DE ALUMNOS"/>
           </Properties>
         </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="jPanelAlumnos">
+        <Component class="javax.swing.JButton" name="jButtonActualizarDatos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Guardar"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JPanel" name="jPanelAlumnos">
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPaneAlum" pref="565" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPaneAlum" alignment="1" max="32767" attributes="0"/>
               </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPaneAlum" pref="476" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPaneAlum" min="-2" pref="119" max="-2" attributes="0"/>
+                      <EmptySpace pref="98" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Container class="javax.swing.JScrollPane" name="jScrollPaneAlum">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+            </DimensionLayout>
+          </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTableAlum">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 5" type="java.lang.Object"/>
-                  </Table>
-                </Property>
-              </Properties>
-            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPaneAlum">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTableAlum">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="5" rowCount="0">
+                        <Column editable="true" title="C&#xf3;digo" type="java.lang.Integer"/>
+                        <Column editable="true" title="Nombre y apellidos" type="java.lang.String"/>
+                        <Column editable="true" title="Fecha incorporaci&#xf3;n" type="java.lang.String"/>
+                        <Column editable="true" title="Profesor" type="java.lang.String"/>
+                        <Column editable="false" title="Nota" type="java.lang.Double"/>
+                      </Table>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="jButtonInsertarAlum">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Insertar Alumno"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonInsertarAlumActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

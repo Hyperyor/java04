@@ -42,14 +42,14 @@ public class Conexion extends javax.swing.JPanel {
         jButtonAceptar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(600, 500));
-        setMinimumSize(new java.awt.Dimension(600, 500));
+        setMaximumSize(new java.awt.Dimension(750, 550));
+        setMinimumSize(new java.awt.Dimension(750, 550));
 
         jLabelInicioSesion.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabelInicioSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelInicioSesion.setText("INICIAR SESIÓN");
 
-        jTextFieldUsuario.setText("postgrestsql");
+        jTextFieldUsuario.setText("postgres");
 
         jTextFieldContraseña.setText("jTextField2");
 
@@ -77,31 +77,32 @@ public class Conexion extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabelInicioSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(191, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonCancelar)
-                        .addGap(76, 76, 76)
-                        .addComponent(jButtonAceptar))
-                    .addGroup(layout.createSequentialGroup()
+                .addContainerGap(237, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelContraseña, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(129, 129, 129))
+                            .addComponent(jLabelContraseña))
+                        .addGap(57, 57, 57))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonCancelar)
+                        .addGap(33, 33, 33)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jButtonAceptar)))
+                .addGap(206, 206, 206))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabelInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelUsuario))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -111,7 +112,7 @@ public class Conexion extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAceptar)
                     .addComponent(jButtonCancelar))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -130,6 +131,11 @@ public class Conexion extends javax.swing.JPanel {
             //le decimso a la ventana principal que coloque el panel
             //visualizar y lo haga visible
             venP.cambiarAVisualizar();
+            //creamos el GestionProfesor
+            venP.getJPanelVisualizar().setProfesores(new GestionProfesor(GestionBD.getPreofesorStatement()));
+            //resetea el panel una vez se conecte, no antes
+            venP.getJPanelVisualizar().reset();
+            
             reset();
         }
         else
