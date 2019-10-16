@@ -105,6 +105,24 @@ public class GestionProfesor {
         
     }
     
+    public Profesor getFirstProf()
+    {
+        Profesor p = new Profesor();
+        
+        try
+        {
+            rSet.beforeFirst();
+            p = getNextProf();
+        }
+        catch(SQLException ex)
+        {
+            
+        }
+        
+        return p;
+        
+    }
+    
     public void updateProf(Profesor prof)
     {
         Statement st = profStatement;
