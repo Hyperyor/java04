@@ -29,7 +29,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void reset()
     {
         jMenuConexion.setForeground(Color.RED);
-        //jMenuVisualizar.setEnabled(false);
         mainMenu.setEnabled(false);
         setContentPane(JPanelConexion);
         JPanelConexion.setVisible(true);
@@ -54,13 +53,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.JPanelVisualizar = JPanelVisualizar;
     }
 
-//    public JMenu getjMenuVisualizar() {
-//        return jMenuVisualizar;
-//    }
-//
-//    public void setjMenuVisualizar(JMenu jMenuVisualizar) {
-//        this.jMenuVisualizar = jMenuVisualizar;
-//    }
+
 
     public JMenu getjMenuAcerca() {
         return mainMenu;
@@ -119,8 +112,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuConexion = new javax.swing.JMenu();
         mainMenu = new javax.swing.JMenu();
+        acercaMenuItem = new javax.swing.JMenuItem();
         visualizarMenuItem = new javax.swing.JMenuItem();
-        acercaDeMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 500));
@@ -137,21 +130,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         mainMenu.setText("Menú principal");
 
-        visualizarMenuItem.setText("Acerca de");
+        acercaMenuItem.setText("Acerca de");
+        acercaMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acercaMenuItemActionPerformed(evt);
+            }
+        });
+        mainMenu.add(acercaMenuItem);
+
+        visualizarMenuItem.setText("Visualizar");
         visualizarMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 visualizarMenuItemActionPerformed(evt);
             }
         });
         mainMenu.add(visualizarMenuItem);
-
-        acercaDeMenuItem.setText("Visualizar");
-        acercaDeMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                acercaDeMenuItemActionPerformed(evt);
-            }
-        });
-        mainMenu.add(acercaDeMenuItem);
 
         jMenuBar1.add(mainMenu);
 
@@ -185,21 +178,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuConexionMouseClicked
 
-    private void visualizarMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarMenuItemActionPerformed
+    private void acercaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acercaMenuItemActionPerformed
         if(mainMenu.isEnabled())
         {
             JDialogAcerca=new Acerca(this, true);
         }
-    }//GEN-LAST:event_visualizarMenuItemActionPerformed
+    }//GEN-LAST:event_acercaMenuItemActionPerformed
 
-    private void acercaDeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acercaDeMenuItemActionPerformed
+    private void visualizarMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarMenuItemActionPerformed
         if(mainMenu.isEnabled())
         {
             JPanelConexion.setVisible(false);
             JPanelVisualizar.setVisible(true);
             setContentPane(JPanelVisualizar);
         }
-    }//GEN-LAST:event_acercaDeMenuItemActionPerformed
+    }//GEN-LAST:event_visualizarMenuItemActionPerformed
 
    
     public static void main(String args[]) {
@@ -212,7 +205,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem acercaDeMenuItem;
+    private javax.swing.JMenuItem acercaMenuItem;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuConexion;
     private javax.swing.JMenu mainMenu;
