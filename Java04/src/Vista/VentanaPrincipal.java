@@ -116,9 +116,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         visualizarMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(750, 575));
-        setMinimumSize(new java.awt.Dimension(750, 575));
-        setPreferredSize(new java.awt.Dimension(750, 575));
+        setMaximumSize(new java.awt.Dimension(800, 575));
+        setMinimumSize(new java.awt.Dimension(800, 575));
+        setPreferredSize(new java.awt.Dimension(800, 575));
 
         jMenuConexion.setText("Conexion ");
         jMenuConexion.addMouseListener(new java.awt.event.MouseAdapter() {
