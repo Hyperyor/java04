@@ -39,7 +39,7 @@ public class Main {
 
         GestionBD.connectToDataBase("example");
         
-        GestionProfesor gp = new GestionProfesor(GestionBD.getPreofesorStatement());
+        GestionProfesor gp = new GestionProfesor(GestionBD.getSensitiveStatement());
         
         System.out.println("\nNumero total de profesores: " + gp.getTotalRowNumber());
         
@@ -75,7 +75,8 @@ public class Main {
         System.out.println("\nDNI del cuarto profesor: " + po.getDni());
         System.out.println("\nMedia de alumnos del cuarto profesor: " + po.getMediaAlumnos());
         
-        GestionAlumno gA = new GestionAlumno(GestionBD.getAlumnoStatement());
+        GestionAlumno gA = new GestionAlumno(GestionBD.getSimpleStatement(), 
+                                            GestionBD.getSensitiveStatement());
         
         ArrayList<Alumno> al = gA.getListadoAlumnos();
         
@@ -86,11 +87,11 @@ public class Main {
             System.out.println("\nCodigo del alumno: " + alumn.getCodigoAlumno());
         }
         
-        //AlumnoDaw al1 = (AlumnoDaw)al.get(0);
-        
-        //al1.setCodigoAlumno(3);
-        
-        //gA.insertAlumn(al1);
+//        AlumnoDaw al1 = (AlumnoDaw)al.get(0);
+//        
+//        al1.setCodigoAlumno(5);
+//        
+//        gA.insertAlumn(al1);
         
 //        po.setMediaAlumnos(0);
 //        
