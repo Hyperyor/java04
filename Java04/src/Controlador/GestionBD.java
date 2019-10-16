@@ -53,7 +53,7 @@ public class GestionBD {
     }
     
     //metodo que crea y devuelve un statement
-    public static Statement getPreofesorStatement()
+    public static Statement getSensitiveStatement()
     {
         Statement stmt = null;
         
@@ -70,16 +70,14 @@ public class GestionBD {
          return stmt;
     }
     
-    public static Statement getAlumnoStatement()
+    public static Statement getSimpleStatement()
     {
         Statement stmt = null;
         
         try
         {
-            //el statement debe ser asi, de lo contrario no se podrian
-            //insertar elementos en las tablas, daria error
-                stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY,
-                                            ResultSet.CONCUR_UPDATABLE);
+            
+                stmt = conn.createStatement();
         }
         catch(SQLException ex)
         {

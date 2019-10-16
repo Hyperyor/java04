@@ -120,7 +120,7 @@ public class Conexion extends javax.swing.JPanel {
         
         if(GestionBD.connectToDataBase(enviarContr()))
         {
-            venP.setGestionProf(new GestionProfesor(GestionBD.getPreofesorStatement()));
+            venP.setGestionProf(new GestionProfesor(GestionBD.getSensitiveStatement()));
             //poner boton menu verde
             venP.setjMenuConexion(Color.green);
             //habilitar botones menu
@@ -132,7 +132,7 @@ public class Conexion extends javax.swing.JPanel {
             //visualizar y lo haga visible
             venP.cambiarAVisualizar();
             //creamos el GestionProfesor
-            venP.getJPanelVisualizar().setProfesores(new GestionProfesor(GestionBD.getPreofesorStatement()));
+            venP.getJPanelVisualizar().setProfesores(new GestionProfesor(GestionBD.getSensitiveStatement()));
             //resetea el panel una vez se conecte, no antes
             venP.getJPanelVisualizar().reset();
             

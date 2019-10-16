@@ -14,25 +14,27 @@ import java.util.*;
 public class GestionAlumno {
     
     private ResultSet rSet;
-    private Statement alumnStatement;
+    private Statement alumnSimpleStatement;
+    private Statement alumnComplexStatement;
     
     private ArrayList<Alumno> listadoAlumnos = new ArrayList<Alumno>();
     
-    public GestionAlumno(Statement stmt)
+    public GestionAlumno(Statement stmtSimple, Statement stmtComplex)
     {
-        alumnStatement = stmt;
+        alumnSimpleStatement = stmtSimple;
+        alumnComplexStatement = stmtComplex;
         
-        insertarAlumnosDaw();
+        loadAlumnosDaw();
         
-        insertarAlumnosDam();
+        loadAlumnosDam();
         
     }
     
-    private void insertarAlumnosDaw()
+    private void loadAlumnosDaw()
     {
         try
         {
-            rSet = alumnStatement.executeQuery("select alumno.codigo_alumno, apenom, fecha_nacimiento, proalumno, nota_web " +
+            rSet = alumnSimpleStatement.executeQuery("select alumno.codigo_alumno, apenom, fecha_nacimiento, proalumno, nota_web " +
                                 "from alumno, alumnoDaw where alumno.codigo_alumno = alumnoDaw.codigo_alumno");
             
             while(rSet.next())
@@ -60,11 +62,11 @@ public class GestionAlumno {
         }
     }
     
-    private void insertarAlumnosDam()
+    private void loadAlumnosDam()
     {
         try
         {
-            rSet = alumnStatement.executeQuery("select alumno.codigo_alumno, apenom, fecha_nacimiento, proalumno, nota_movil " +
+            rSet = alumnSimpleStatement.executeQuery("select alumno.codigo_alumno, apenom, fecha_nacimiento, proalumno, nota_movil " +
                                 "from alumno, alumnoDam where alumno.codigo_alumno = alumnoDam.codigo_alumno");
             
             while(rSet.next())
@@ -99,7 +101,7 @@ public class GestionAlumno {
        
         try
         {
-            rSet = alumnStatement.executeQuery("select * from alumno");
+            rSet = alumnComplexStatement.executeQuery("select * from alumno");
             
             rSet.moveToInsertRow();
             
@@ -128,7 +130,7 @@ public class GestionAlumno {
         }
         catch(SQLException ex)
         {
-            System.out.println("\nError");
+            System.out.println("\nError 111");
         }
         
     }
@@ -138,7 +140,7 @@ public class GestionAlumno {
     {
         try
         {
-            rSet = alumnStatement.executeQuery("select * from alumnoDaw");
+            rSet = alumnComplexStatement.executeQuery("select * from alumnoDaw");
             
             rSet.moveToInsertRow();
             
@@ -159,7 +161,7 @@ public class GestionAlumno {
     {
         try
         {
-            rSet = alumnStatement.executeQuery("select * from alumnoDam");
+            rSet = alumnComplexStatement.executeQuery("select * from alumnoDam");
             
             rSet.moveToInsertRow();
             
