@@ -72,9 +72,7 @@ public class Visualizar extends javax.swing.JPanel {
         jScrollPaneAlum = new javax.swing.JScrollPane();
         jTableAlum = new javax.swing.JTable();
         jButtonInsertarAlum = new javax.swing.JButton();
-<<<<<<< HEAD
         jDatePickerProfesor = new org.jdatepicker.JDatePicker();
-=======
         jPanelInsertarAlum = new javax.swing.JPanel();
         jButtonDam = new javax.swing.JButton();
         jButtonDaw = new javax.swing.JButton();
@@ -90,7 +88,6 @@ public class Visualizar extends javax.swing.JPanel {
         jTextFieldInsertarProfesor = new javax.swing.JTextField();
         jTextFieldInsertarNota = new javax.swing.JTextField();
         jLabelCabecera = new javax.swing.JLabel();
->>>>>>> dd035f050eb4118ca6c23807400c05a54b3e9762
 
         setMaximumSize(new java.awt.Dimension(800, 575));
         setMinimumSize(new java.awt.Dimension(800, 575));
@@ -198,12 +195,6 @@ public class Visualizar extends javax.swing.JPanel {
             }
         });
 
-        jDatePickerProfesor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jDatePickerProfesorActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelProfesorLayout = new javax.swing.GroupLayout(jPanelProfesor);
         jPanelProfesor.setLayout(jPanelProfesorLayout);
         jPanelProfesorLayout.setHorizontalGroup(
@@ -223,19 +214,18 @@ public class Visualizar extends javax.swing.JPanel {
                                     .addComponent(jLabelDni)
                                     .addComponent(jLabelNombre)
                                     .addComponent(jLabelEdad)
-                                    .addComponent(jLabelFechaIncor)
                                     .addComponent(jLabelMedia)
                                     .addGroup(jPanelProfesorLayout.createSequentialGroup()
-                                        .addGap(243, 243, 243)
-                                        .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldDni, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldMedia, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                            .addGroup(jPanelProfesorLayout.createSequentialGroup()
-                                                .addGap(0, 0, 0)
-                                                .addComponent(jDatePickerProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                                        .addComponent(jLabelFechaIncor)
+                                        .addGap(80, 80, 80)
+                                        .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jDatePickerProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                                .addComponent(jTextFieldDni, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                                .addComponent(jTextFieldEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                                .addComponent(jTextFieldMedia, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                                 .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPanelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanelProfesorLayout.createSequentialGroup()
@@ -270,8 +260,8 @@ public class Visualizar extends javax.swing.JPanel {
                         .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelEdad))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelFechaIncor)
                             .addComponent(jDatePickerProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
@@ -488,11 +478,6 @@ public class Visualizar extends javax.swing.JPanel {
         actualizarTable();
         actualizarListaAlumnosProfesor();
     }//GEN-LAST:event_jButtonSigActionPerformed
-
-    private void jDatePickerProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDatePickerProfesorActionPerformed
-        
-        
-    }//GEN-LAST:event_jDatePickerProfesorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

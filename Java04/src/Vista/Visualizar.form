@@ -86,23 +86,22 @@
                                       <Component id="jLabelDni" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelEdad" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelFechaIncor" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelMedia" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jTextFieldNombre" pref="170" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldDni" pref="170" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldEdad" alignment="0" pref="170" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldMedia" alignment="0" pref="170" max="32767" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                                                  <Component id="jDatePickerProfesor" pref="0" max="32767" attributes="0"/>
+                                          <Component id="jLabelFechaIncor" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jDatePickerProfesor" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jTextFieldNombre" pref="170" max="32767" attributes="0"/>
+                                                  <Component id="jTextFieldDni" pref="170" max="32767" attributes="0"/>
+                                                  <Component id="jTextFieldEdad" alignment="0" pref="170" max="32767" attributes="0"/>
+                                                  <Component id="jTextFieldMedia" alignment="0" pref="170" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="111" max="32767" attributes="0"/>
+                                  <EmptySpace pref="79" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jPanelImagen" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
@@ -152,8 +151,8 @@
                               <Component id="jTextFieldEdad" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelEdad" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabelFechaIncor" min="-2" max="-2" attributes="0"/>
                               <Component id="jDatePickerProfesor" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -335,9 +334,6 @@
           </Events>
         </Component>
         <Component class="org.jdatepicker.JDatePicker" name="jDatePickerProfesor">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jDatePickerProfesorActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
