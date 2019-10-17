@@ -69,7 +69,6 @@ public class Visualizar extends javax.swing.JPanel {
         jTextFieldDni = new javax.swing.JTextField();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldEdad = new javax.swing.JTextField();
-        jTextFieldFecha = new javax.swing.JTextField();
         jTextFieldMedia = new javax.swing.JTextField();
         jLabelDni = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
@@ -81,6 +80,7 @@ public class Visualizar extends javax.swing.JPanel {
         jScrollPaneAlum = new javax.swing.JScrollPane();
         jTableAlum = new javax.swing.JTable();
         jButtonInsertarAlum = new javax.swing.JButton();
+        jDatePickerProfesor = new org.jdatepicker.JDatePicker();
 
         setMaximumSize(new java.awt.Dimension(800, 575));
         setMinimumSize(new java.awt.Dimension(800, 575));
@@ -244,8 +244,6 @@ public class Visualizar extends javax.swing.JPanel {
         jTextFieldEdad.setEditable(false);
         jTextFieldEdad.setText("jTextField3");
 
-        jTextFieldFecha.setText("jTextField4");
-
         jTextFieldMedia.setEditable(false);
         jTextFieldMedia.setText("jTextField5");
 
@@ -307,6 +305,12 @@ public class Visualizar extends javax.swing.JPanel {
             }
         });
 
+        jDatePickerProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDatePickerProfesorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelProfesorLayout = new javax.swing.GroupLayout(jPanelProfesor);
         jPanelProfesor.setLayout(jPanelProfesorLayout);
         jPanelProfesorLayout.setHorizontalGroup(
@@ -330,12 +334,14 @@ public class Visualizar extends javax.swing.JPanel {
                                     .addComponent(jLabelMedia)
                                     .addGroup(jPanelProfesorLayout.createSequentialGroup()
                                         .addGap(243, 243, 243)
-                                        .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldDni, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldMedia, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                            .addGroup(jPanelProfesorLayout.createSequentialGroup()
+                                                .addGap(0, 0, 0)
+                                                .addComponent(jDatePickerProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                                 .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPanelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -372,9 +378,9 @@ public class Visualizar extends javax.swing.JPanel {
                             .addComponent(jTextFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelEdad))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelFechaIncor))
+                        .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelFechaIncor)
+                            .addComponent(jDatePickerProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldMedia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -450,6 +456,11 @@ public class Visualizar extends javax.swing.JPanel {
         actualizarImagen();
     }//GEN-LAST:event_jButtonSigActionPerformed
 
+    private void jDatePickerProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDatePickerProfesorActionPerformed
+        
+        
+    }//GEN-LAST:event_jDatePickerProfesorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonActualizarDatos;
@@ -460,6 +471,7 @@ public class Visualizar extends javax.swing.JPanel {
     private javax.swing.JButton jButtonInsertarAlum;
     private javax.swing.JButton jButtonMedia;
     private javax.swing.JButton jButtonSig;
+    private org.jdatepicker.JDatePicker jDatePickerProfesor;
     private javax.swing.JLabel jLabelCabecera;
     private javax.swing.JLabel jLabelDni;
     private javax.swing.JLabel jLabelEdad;
@@ -480,7 +492,6 @@ public class Visualizar extends javax.swing.JPanel {
     private javax.swing.JTable jTableAlum;
     private javax.swing.JTextField jTextFieldDni;
     private javax.swing.JTextField jTextFieldEdad;
-    private javax.swing.JTextField jTextFieldFecha;
     private javax.swing.JTextField jTextFieldInsertarCodigo;
     private javax.swing.JTextField jTextFieldInsertarFechaIncorporacion;
     private javax.swing.JTextField jTextFieldInsertarNombre;
@@ -591,19 +602,28 @@ public class Visualizar extends javax.swing.JPanel {
         {
             jTextFieldDni.setText("");
             jTextFieldEdad.setText("");
-            jTextFieldFecha.setText("");
+           jDatePickerProfesor.getFormattedTextField().setText("");
             jTextFieldMedia.setText("");
             jTextFieldNombre.setText("");
+            
+            
+            
         }
         else
         {
             jTextFieldDni.setText(profeActual.getDni());
             jTextFieldEdad.setText(""+profeActual.getEdad());
-            jTextFieldFecha.setText(profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+
-                                    "/"  +(profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+1)+
-                                    "/"  +profeActual.getFechaIncorporacion().get(Calendar.YEAR));
+            jDatePickerProfesor.getFormattedTextField().setText(""+profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+
+                                                                "/"  +(profeActual.getFechaIncorporacion().get(Calendar.MONTH)+1)+
+                                                                "/"  +profeActual.getFechaIncorporacion().get(Calendar.YEAR));
             jTextFieldMedia.setText(""+profeActual.getMediaAlumnos());
             jTextFieldNombre.setText(profeActual.getNombre());
+            
+            
+            System.out.println(jDatePickerProfesor.getModel().getDay()+" "+
+                               jDatePickerProfesor.getModel().getMonth()+" "+
+                               jDatePickerProfesor.getModel().getYear());
+            System.out.println(jDatePickerProfesor);
         }
             
     }
@@ -628,6 +648,6 @@ public class Visualizar extends javax.swing.JPanel {
         
         jPanelImagen.setVisible(false);
         jPanelImagen.setVisible(true);
-        //jPanelImagen.repaint();
+        
     }
 }
