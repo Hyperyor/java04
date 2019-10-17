@@ -15,6 +15,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private Acerca JDialogAcerca;
     private GestionProfesor gestionP;
     
+    
     public VentanaPrincipal() {
         initComponents();
         

@@ -2,9 +2,10 @@
 package Vista;
 
 
+
 import Controlador.*;
 import Modelo.Profesor;
-import java.awt.event.*;
+import java.awt.*;
 import java.util.Calendar;
 import javax.swing.*;
 
@@ -12,8 +13,9 @@ import javax.swing.*;
 public class Visualizar extends javax.swing.JPanel {
 
     private VentanaPrincipal venP;
-    private GestionProfesor profesores;
+   // private GestionProfesor profesores;
     private Profesor profeActual;
+    private ImageIcon fotoProfe;
     
     public Visualizar(VentanaPrincipal p) {
         initComponents();
@@ -22,13 +24,13 @@ public class Visualizar extends javax.swing.JPanel {
         
     }
 
-    public GestionProfesor getProfesores() {
+    /*public GestionProfesor getProfesores() {
         return profesores;
     }
 
     public void setProfesores(GestionProfesor profesores) {
         this.profesores = profesores;
-    }
+    }*/
 
     public Profesor getProfeActual() {
         return profeActual;
@@ -205,16 +207,10 @@ public class Visualizar extends javax.swing.JPanel {
         jPanelProfesor.setMinimumSize(new java.awt.Dimension(750, 550));
         jPanelProfesor.setPreferredSize(new java.awt.Dimension(750, 550));
 
-        javax.swing.GroupLayout jPanelImagenLayout = new javax.swing.GroupLayout(jPanelImagen);
-        jPanelImagen.setLayout(jPanelImagenLayout);
-        jPanelImagenLayout.setHorizontalGroup(
-            jPanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 223, Short.MAX_VALUE)
-        );
-        jPanelImagenLayout.setVerticalGroup(
-            jPanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 176, Short.MAX_VALUE)
-        );
+        jPanelImagen.setMaximumSize(new java.awt.Dimension(175, 175));
+        jPanelImagen.setMinimumSize(new java.awt.Dimension(175, 175));
+        jPanelImagen.setPreferredSize(new java.awt.Dimension(175, 175));
+        jPanelImagen.setLayout(new java.awt.BorderLayout());
 
         jButtonMedia.setText("Calcular media");
 
@@ -239,14 +235,18 @@ public class Visualizar extends javax.swing.JPanel {
             }
         });
 
+        jTextFieldDni.setEditable(false);
         jTextFieldDni.setText("jTextField1");
 
+        jTextFieldNombre.setEditable(false);
         jTextFieldNombre.setText("jTextField2");
 
+        jTextFieldEdad.setEditable(false);
         jTextFieldEdad.setText("jTextField3");
 
         jTextFieldFecha.setText("jTextField4");
 
+        jTextFieldMedia.setEditable(false);
         jTextFieldMedia.setText("jTextField5");
 
         jLabelDni.setText("DNI");
@@ -316,17 +316,13 @@ public class Visualizar extends javax.swing.JPanel {
                     .addGroup(jPanelProfesorLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelProfesorLayout.createSequentialGroup()
-                                .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addComponent(jButtonMedia)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonAlumnos)
-                                .addGap(50, 50, 50)
-                                .addComponent(jButtonSig, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanelAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanelProfesorLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProfesorLayout.createSequentialGroup()
                                 .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelProfesorLayout.createSequentialGroup()
+                                        .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(39, 39, 39)
+                                        .addComponent(jButtonMedia))
                                     .addComponent(jLabelDni)
                                     .addComponent(jLabelNombre)
                                     .addComponent(jLabelEdad)
@@ -340,18 +336,23 @@ public class Visualizar extends javax.swing.JPanel {
                                             .addComponent(jTextFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                                .addComponent(jPanelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                                .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelProfesorLayout.createSequentialGroup()
+                                        .addComponent(jButtonAlumnos)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(jButtonSig, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanelProfesorLayout.createSequentialGroup()
-                        .addGap(312, 312, 312)
-                        .addComponent(jButtonActualizarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelProfesorLayout.createSequentialGroup()
+                                .addGap(333, 333, 333)
+                                .addComponent(jButtonActualizarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelProfesorLayout.createSequentialGroup()
+                                .addGap(319, 319, 319)
+                                .addComponent(jButtonInsertarAlum)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProfesorLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButtonInsertarAlum)
-                .addGap(300, 300, 300))
         );
         jPanelProfesorLayout.setVerticalGroup(
             jPanelProfesorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,17 +435,19 @@ public class Visualizar extends javax.swing.JPanel {
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
         
         
-        profeActual=profesores.getPreviousProf();
+        profeActual=venP.getGestionProf().getPreviousProf();
         actualizaBotones();
         actualizarCamposProf();
+        actualizarImagen();
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private void jButtonSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSigActionPerformed
         
         
-        profeActual=profesores.getNextProf();
+        profeActual=venP.getGestionProf().getNextProf();
         actualizaBotones();
         actualizarCamposProf();
+        actualizarImagen();
     }//GEN-LAST:event_jButtonSigActionPerformed
 
 
@@ -492,6 +495,9 @@ public class Visualizar extends javax.swing.JPanel {
 
     public void reset()
     {
+        
+        //visualizamos el primer elemento
+        profeActual=venP.getGestionProf().getFirstProf();
         //Campos profesor
         actualizarCamposProf();
         //Campos Inserccion alumno
@@ -500,7 +506,8 @@ public class Visualizar extends javax.swing.JPanel {
          colocarPanel(jPanelProfesor, jPanelInsertarAlum);
         //actualizamos botones
         actualizaBotones();
-      
+        //actualizamos imagen
+        actualizarImagen();
         
     }
     
@@ -516,7 +523,7 @@ public class Visualizar extends javax.swing.JPanel {
 
     public void actualizaBotones()
     {
-        if(profesores.getTotalRowNumber()==0)
+        if(venP.getGestionProf().getTotalRowNumber()==0)
         {
             jButtonActualizarDatos.setEnabled(false);
             jButtonAlumnos.setEnabled(false);
@@ -527,7 +534,7 @@ public class Visualizar extends javax.swing.JPanel {
         }
         else
         {
-            if(profesores.getTotalRowNumber()==1)
+            if(venP.getGestionProf().getTotalRowNumber()==1)
             {
                 jButtonAtras.setEnabled(false);
                 jButtonSig.setEnabled(false);
@@ -539,7 +546,7 @@ public class Visualizar extends javax.swing.JPanel {
             }
             else
             {
-                if(profesores.isFirstProfesor())
+                if(venP.getGestionProf().isFirstProfesor())
                 {
                     jButtonAtras.setEnabled(false);
                     jButtonSig.setEnabled(true);
@@ -550,7 +557,7 @@ public class Visualizar extends javax.swing.JPanel {
                 }
                 else
                 {
-                    if(profesores.isLastProfesor())
+                    if(venP.getGestionProf().isLastProfesor())
                     {
                         jButtonAtras.setEnabled(true);
                         jButtonSig.setEnabled(false); 
@@ -610,4 +617,17 @@ public class Visualizar extends javax.swing.JPanel {
         jTextFieldInsertarProfesor.setText("");
     }
 
+    public void actualizarImagen()
+    {
+        jPanelImagen.removeAll();
+        
+        Image i=new ImageIcon(profeActual.getFoto()).getImage();
+        FondoImagen panelContenedorImagen=new FondoImagen(i);
+       
+        jPanelImagen.add(panelContenedorImagen, BorderLayout.CENTER);
+        
+        jPanelImagen.setVisible(false);
+        jPanelImagen.setVisible(true);
+        //jPanelImagen.repaint();
+    }
 }
