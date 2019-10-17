@@ -1,6 +1,7 @@
  
 package Vista;
 
+import Controlador.GestionAlumno;
 import Controlador.GestionBD;
 import Controlador.GestionProfesor;
 import java.awt.Color;
@@ -122,6 +123,7 @@ public class Conexion extends javax.swing.JPanel {
         {
             //creamos el GestionProfesor
             venP.setGestionProf(new GestionProfesor(GestionBD.getSensitiveStatement()));
+            venP.setGestAlumn(new GestionAlumno(GestionBD.getSimpleStatement(), GestionBD.getSensitiveStatement()));
             //poner boton menu verde
             venP.setjMenuConexion(Color.green);
             //habilitar botones menu

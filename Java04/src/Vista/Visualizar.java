@@ -4,23 +4,30 @@ package Vista;
 
 
 import Controlador.*;
-import Modelo.Profesor;
+import Modelo.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Visualizar extends javax.swing.JPanel {
 
     private VentanaPrincipal venP;
-   // private GestionProfesor profesores;
     private Profesor profeActual;
     private ImageIcon fotoProfe;
+    private ArrayList<Alumno> listaProfesor;
+    
+    DefaultTableModel model;
     
     public Visualizar(VentanaPrincipal p) {
         initComponents();
        
         venP=p;
+        
+       model = (DefaultTableModel) jTableAlum.getModel();
         
     }
 
@@ -45,21 +52,6 @@ public class Visualizar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelInsertarAlum = new javax.swing.JPanel();
-        jButtonDam = new javax.swing.JButton();
-        jButtonDaw = new javax.swing.JButton();
-        jPanelInsertarDam = new javax.swing.JPanel();
-        jLabelInsertarCodigoAlumno = new javax.swing.JLabel();
-        jLabelInsertarNombre = new javax.swing.JLabel();
-        jLabelInsertarFechaIncorporacion = new javax.swing.JLabel();
-        jLabelInsertarProfesor = new javax.swing.JLabel();
-        jLabelInsertarNota = new javax.swing.JLabel();
-        jTextFieldInsertarCodigo = new javax.swing.JTextField();
-        jTextFieldInsertarNombre = new javax.swing.JTextField();
-        jTextFieldInsertarFechaIncorporacion = new javax.swing.JTextField();
-        jTextFieldInsertarProfesor = new javax.swing.JTextField();
-        jTextFieldInsertarNota = new javax.swing.JTextField();
-        jLabelCabecera = new javax.swing.JLabel();
         jPanelProfesor = new javax.swing.JPanel();
         jPanelImagen = new javax.swing.JPanel();
         jButtonMedia = new javax.swing.JButton();
@@ -80,128 +72,29 @@ public class Visualizar extends javax.swing.JPanel {
         jScrollPaneAlum = new javax.swing.JScrollPane();
         jTableAlum = new javax.swing.JTable();
         jButtonInsertarAlum = new javax.swing.JButton();
+<<<<<<< HEAD
         jDatePickerProfesor = new org.jdatepicker.JDatePicker();
+=======
+        jPanelInsertarAlum = new javax.swing.JPanel();
+        jButtonDam = new javax.swing.JButton();
+        jButtonDaw = new javax.swing.JButton();
+        jPanelInsertarDam = new javax.swing.JPanel();
+        jLabelInsertarCodigoAlumno = new javax.swing.JLabel();
+        jLabelInsertarNombre = new javax.swing.JLabel();
+        jLabelInsertarFechaIncorporacion = new javax.swing.JLabel();
+        jLabelInsertarProfesor = new javax.swing.JLabel();
+        jLabelInsertarNota = new javax.swing.JLabel();
+        jTextFieldInsertarCodigo = new javax.swing.JTextField();
+        jTextFieldInsertarNombre = new javax.swing.JTextField();
+        jTextFieldInsertarFechaIncorporacion = new javax.swing.JTextField();
+        jTextFieldInsertarProfesor = new javax.swing.JTextField();
+        jTextFieldInsertarNota = new javax.swing.JTextField();
+        jLabelCabecera = new javax.swing.JLabel();
+>>>>>>> dd035f050eb4118ca6c23807400c05a54b3e9762
 
         setMaximumSize(new java.awt.Dimension(800, 575));
         setMinimumSize(new java.awt.Dimension(800, 575));
         setPreferredSize(new java.awt.Dimension(800, 575));
-
-        jPanelInsertarAlum.setMaximumSize(new java.awt.Dimension(600, 500));
-        jPanelInsertarAlum.setMinimumSize(new java.awt.Dimension(600, 500));
-        jPanelInsertarAlum.setPreferredSize(new java.awt.Dimension(600, 500));
-
-        jButtonDam.setText("Nuevo Dam");
-
-        jButtonDaw.setText("Nuevo Daw");
-
-        jLabelInsertarCodigoAlumno.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelInsertarCodigoAlumno.setText("CÓDIGO");
-
-        jLabelInsertarNombre.setText("NOMBRE Y APELLIDOS");
-
-        jLabelInsertarFechaIncorporacion.setText("FECHA DE INCORPORACIÓN");
-
-        jLabelInsertarProfesor.setText("PROFESOR");
-
-        jLabelInsertarNota.setText("NOTA");
-
-        jTextFieldInsertarCodigo.setText("jTextField1");
-
-        jTextFieldInsertarNombre.setText("jTextField2");
-
-        jTextFieldInsertarFechaIncorporacion.setText("jTextField3");
-
-        jTextFieldInsertarProfesor.setText("jTextField4");
-
-        jTextFieldInsertarNota.setText("jTextField5");
-
-        jLabelCabecera.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabelCabecera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCabecera.setText("Insertar alumno de Dam");
-
-        javax.swing.GroupLayout jPanelInsertarDamLayout = new javax.swing.GroupLayout(jPanelInsertarDam);
-        jPanelInsertarDam.setLayout(jPanelInsertarDamLayout);
-        jPanelInsertarDamLayout.setHorizontalGroup(
-            jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInsertarDamLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabelInsertarNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelInsertarCodigoAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelInsertarFechaIncorporacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelInsertarProfesor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelInsertarNota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldInsertarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldInsertarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldInsertarFechaIncorporacion, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldInsertarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldInsertarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(107, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInsertarDamLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanelInsertarDamLayout.setVerticalGroup(
-            jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInsertarDamLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabelCabecera)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelInsertarCodigoAlumno)
-                    .addComponent(jTextFieldInsertarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelInsertarNombre)
-                    .addComponent(jTextFieldInsertarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelInsertarFechaIncorporacion)
-                    .addComponent(jTextFieldInsertarFechaIncorporacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelInsertarProfesor)
-                    .addComponent(jTextFieldInsertarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelInsertarNota)
-                    .addComponent(jTextFieldInsertarNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
-        );
-
-        javax.swing.GroupLayout jPanelInsertarAlumLayout = new javax.swing.GroupLayout(jPanelInsertarAlum);
-        jPanelInsertarAlum.setLayout(jPanelInsertarAlumLayout);
-        jPanelInsertarAlumLayout.setHorizontalGroup(
-            jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jButtonDam)
-                .addGap(143, 143, 143)
-                .addComponent(jButtonDaw)
-                .addContainerGap(111, Short.MAX_VALUE))
-            .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanelInsertarDam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jPanelInsertarAlumLayout.setVerticalGroup(
-            jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonDam)
-                    .addComponent(jButtonDaw))
-                .addContainerGap(436, Short.MAX_VALUE))
-            .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInsertarAlumLayout.createSequentialGroup()
-                    .addContainerGap(88, Short.MAX_VALUE)
-                    .addComponent(jPanelInsertarDam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(92, Short.MAX_VALUE)))
-        );
 
         jPanelProfesor.setMaximumSize(new java.awt.Dimension(750, 550));
         jPanelProfesor.setMinimumSize(new java.awt.Dimension(750, 550));
@@ -401,6 +294,123 @@ public class Visualizar extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanelInsertarAlum.setMaximumSize(new java.awt.Dimension(600, 500));
+        jPanelInsertarAlum.setMinimumSize(new java.awt.Dimension(600, 500));
+        jPanelInsertarAlum.setPreferredSize(new java.awt.Dimension(600, 500));
+
+        jButtonDam.setText("Nuevo Dam");
+
+        jButtonDaw.setText("Nuevo Daw");
+
+        jLabelInsertarCodigoAlumno.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelInsertarCodigoAlumno.setText("CÓDIGO");
+
+        jLabelInsertarNombre.setText("NOMBRE Y APELLIDOS");
+
+        jLabelInsertarFechaIncorporacion.setText("FECHA DE INCORPORACIÓN");
+
+        jLabelInsertarProfesor.setText("PROFESOR");
+
+        jLabelInsertarNota.setText("NOTA");
+
+        jTextFieldInsertarCodigo.setText("jTextField1");
+
+        jTextFieldInsertarNombre.setText("jTextField2");
+
+        jTextFieldInsertarFechaIncorporacion.setText("jTextField3");
+
+        jTextFieldInsertarProfesor.setText("jTextField4");
+
+        jTextFieldInsertarNota.setText("jTextField5");
+
+        jLabelCabecera.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelCabecera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCabecera.setText("Insertar alumno de Dam");
+
+        javax.swing.GroupLayout jPanelInsertarDamLayout = new javax.swing.GroupLayout(jPanelInsertarDam);
+        jPanelInsertarDam.setLayout(jPanelInsertarDamLayout);
+        jPanelInsertarDamLayout.setHorizontalGroup(
+            jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInsertarDamLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabelInsertarNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelInsertarCodigoAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelInsertarFechaIncorporacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelInsertarProfesor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelInsertarNota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldInsertarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldInsertarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldInsertarFechaIncorporacion, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldInsertarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldInsertarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(107, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInsertarDamLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelInsertarDamLayout.setVerticalGroup(
+            jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInsertarDamLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabelCabecera)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelInsertarCodigoAlumno)
+                    .addComponent(jTextFieldInsertarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelInsertarNombre)
+                    .addComponent(jTextFieldInsertarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelInsertarFechaIncorporacion)
+                    .addComponent(jTextFieldInsertarFechaIncorporacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelInsertarProfesor)
+                    .addComponent(jTextFieldInsertarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelInsertarNota)
+                    .addComponent(jTextFieldInsertarNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
+        );
+
+        javax.swing.GroupLayout jPanelInsertarAlumLayout = new javax.swing.GroupLayout(jPanelInsertarAlum);
+        jPanelInsertarAlum.setLayout(jPanelInsertarAlumLayout);
+        jPanelInsertarAlumLayout.setHorizontalGroup(
+            jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(jButtonDam)
+                .addGap(143, 143, 143)
+                .addComponent(jButtonDaw)
+                .addContainerGap(111, Short.MAX_VALUE))
+            .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanelInsertarDam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        jPanelInsertarAlumLayout.setVerticalGroup(
+            jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonDam)
+                    .addComponent(jButtonDaw))
+                .addContainerGap(436, Short.MAX_VALUE))
+            .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInsertarAlumLayout.createSequentialGroup()
+                    .addContainerGap(88, Short.MAX_VALUE)
+                    .addComponent(jPanelInsertarDam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(92, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -427,10 +437,29 @@ public class Visualizar extends javax.swing.JPanel {
 
     private void jButtonAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlumnosActionPerformed
 
+
+        Object[] rows = new Object[6];
         
+        for (int i = 0; i < listaProfesor.size(); i++) {
+            
+            rows = getDatos(listaProfesor.get(i));
+
+            model.addRow(rows);
+        }
+        
+        jTableAlum.setModel(model);
+        
+        //mostrar mensaje de error en caso de no tener alumnos
+        if(listaProfesor.size() == 0)
+        {
+            JOptionPane.showMessageDialog(null, 
+                                "Este profesor no tiene alumnos", "Error", 
+                                JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_jButtonAlumnosActionPerformed
 
+    
     private void jButtonInsertarAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarAlumActionPerformed
        
         
@@ -445,6 +474,8 @@ public class Visualizar extends javax.swing.JPanel {
         actualizaBotones();
         actualizarCamposProf();
         actualizarImagen();
+        actualizarTable();
+        actualizarListaAlumnosProfesor();
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private void jButtonSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSigActionPerformed
@@ -454,6 +485,8 @@ public class Visualizar extends javax.swing.JPanel {
         actualizaBotones();
         actualizarCamposProf();
         actualizarImagen();
+        actualizarTable();
+        actualizarListaAlumnosProfesor();
     }//GEN-LAST:event_jButtonSigActionPerformed
 
     private void jDatePickerProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDatePickerProfesorActionPerformed
@@ -501,8 +534,53 @@ public class Visualizar extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 
-    
+    private void getAlumnos(ArrayList<Alumno> listadoAlumn, ArrayList<Alumno> listaProfesor)
+    {
+        for (int i = 0; i < listadoAlumn.size(); i++) {
+            
+            Alumno al = (Alumno)listadoAlumn.get(i);
+            
+            if(profeActual.getDni().equals(al.getProAlumno()))
+            {
+                listaProfesor.add(al);
+            }
+            
+        }
+    }
 
+    private Object[] getDatos(Alumno al)
+    {
+        Object[] rows = new Object[6];
+        
+        rows[0] = al.getCodigoAlumno();
+        rows[1] = al.getApeNom();
+        String fecha = "" + al.getFechaNacimiento().get(Calendar.DAY_OF_MONTH) + "/"
+                + (al.getFechaNacimiento().get(Calendar.MONTH)+1) + "/" + 
+                al.getFechaNacimiento().get(Calendar.YEAR);
+        rows[2] = fecha;
+        rows[3] = al.getProAlumno();
+        
+        
+        if(al instanceof AlumnoDaw)
+        {
+            AlumnoDaw daw = (AlumnoDaw)al;
+            
+            rows[4] = daw.getNotaWeb();
+            rows[5] = "Alumno de Daw";
+        }
+        else
+        {
+            if(al instanceof AlumnoDam)
+            {
+                AlumnoDam dam = (AlumnoDam)al;
+                
+                rows[4] = dam.getNotaMovil();
+                rows[5] = "Alumno de Dam";
+            }
+        }
+        
+        return rows;
+    }
 
     public void reset()
     {
@@ -519,7 +597,26 @@ public class Visualizar extends javax.swing.JPanel {
         actualizaBotones();
         //actualizamos imagen
         actualizarImagen();
+        actualizarTable();
+        actualizarListaAlumnosProfesor();
         
+    }
+    
+    private void actualizarListaAlumnosProfesor()
+    {
+        //cogemos el arraylist de alumnos principal
+        ArrayList<Alumno> listadoAlumn = venP.getGestAlumn().getListadoAlumnos();
+        
+        //me creo un auxiliar en el que insertaremos unicamente los alumnos del profesor
+        //que estamos visualizando
+        listaProfesor = new ArrayList<Alumno>();
+        
+        getAlumnos(listadoAlumn, listaProfesor);
+    }
+    
+    private void actualizarTable()
+    {
+        model.setRowCount(0);
     }
     
     public void colocarPanel(JPanel panelVisible, JPanel panelInvisible)
@@ -531,6 +628,7 @@ public class Visualizar extends javax.swing.JPanel {
         this.setVisible(true); 
         
     }
+   
 
     public void actualizaBotones()
     {

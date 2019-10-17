@@ -1,6 +1,7 @@
 
 package Vista;
 
+import Controlador.GestionAlumno;
 import Controlador.GestionBD;
 import Controlador.GestionProfesor;
 import java.awt.*;
@@ -14,7 +15,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private Visualizar JPanelVisualizar;
     private Acerca JDialogAcerca;
     private GestionProfesor gestionP;
-    
+    private GestionAlumno gestAlumn;
     
     public VentanaPrincipal() {
         initComponents();
@@ -36,6 +37,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         JPanelVisualizar.setVisible(false);
     }
 
+    public GestionAlumno getGestAlumn() {
+        return gestAlumn;
+    }
+
+    public void setGestAlumn(GestionAlumno gestAlumn) {
+        this.gestAlumn = gestAlumn;
+    }
+    
     
 
     public Conexion getJPanelConexion() {
