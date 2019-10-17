@@ -103,6 +103,11 @@ public class Visualizar extends javax.swing.JPanel {
         jPanelImagen.setLayout(new java.awt.BorderLayout());
 
         jButtonMedia.setText("Calcular media");
+        jButtonMedia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMediaActionPerformed(evt);
+            }
+        });
 
         jButtonAlumnos.setText("Ver alumnos");
         jButtonAlumnos.addActionListener(new java.awt.event.ActionListener() {
@@ -478,6 +483,34 @@ public class Visualizar extends javax.swing.JPanel {
         actualizarTable();
         actualizarListaAlumnosProfesor();
     }//GEN-LAST:event_jButtonSigActionPerformed
+
+    private void jButtonMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMediaActionPerformed
+        
+        float acum = 0;
+        
+        for (int i = 0; i < listaProfesor.size(); i++) {
+            
+            if(listaProfesor.get(i) instanceof AlumnoDaw)
+            {
+                AlumnoDaw daw = (AlumnoDaw)listaProfesor.get(i);
+                
+                acum += daw.getNotaWeb();
+                
+            }
+            else
+            {
+                AlumnoDam dam = (AlumnoDam)listaProfesor.get(i);
+                acum += dam.getNotaMovil();
+            }
+        }
+        
+        float media = acum / listaProfesor.size();
+        
+        jTextFieldMedia.setText("" + media);
+        
+        profeActual.setMediaAlumnos(media);
+        
+    }//GEN-LAST:event_jButtonMediaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
