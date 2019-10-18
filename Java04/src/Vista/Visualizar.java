@@ -9,6 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -39,13 +40,7 @@ public class Visualizar extends javax.swing.JPanel {
         this.profesores = profesores;
     }*/
 
-    public Profesor getProfeActual() {
-        return profeActual;
-    }
-
-    public void setProfeActual(Profesor profeActual) {
-        this.profeActual = profeActual;
-    }
+   
 
     
     @SuppressWarnings("unchecked")
@@ -88,6 +83,7 @@ public class Visualizar extends javax.swing.JPanel {
         jTextFieldInsertarProfesor = new javax.swing.JTextField();
         jTextFieldInsertarNota = new javax.swing.JTextField();
         jLabelCabecera = new javax.swing.JLabel();
+        jButtonVolverAProfesor = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(800, 575));
         setMinimumSize(new java.awt.Dimension(800, 575));
@@ -153,6 +149,11 @@ public class Visualizar extends javax.swing.JPanel {
         jLabelMedia.setText("MEDIA DE ALUMNOS");
 
         jButtonActualizarDatos.setText("Guardar");
+        jButtonActualizarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonActualizarDatosActionPerformed(evt);
+            }
+        });
 
         jTableAlum.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -375,15 +376,27 @@ public class Visualizar extends javax.swing.JPanel {
                 .addGap(41, 41, 41))
         );
 
+        jButtonVolverAProfesor.setText("<-- VOLVER");
+        jButtonVolverAProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverAProfesorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelInsertarAlumLayout = new javax.swing.GroupLayout(jPanelInsertarAlum);
         jPanelInsertarAlum.setLayout(jPanelInsertarAlumLayout);
         jPanelInsertarAlumLayout.setHorizontalGroup(
             jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jButtonDam)
-                .addGap(143, 143, 143)
-                .addComponent(jButtonDaw)
+                .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jButtonDam)
+                        .addGap(143, 143, 143)
+                        .addComponent(jButtonDaw))
+                    .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jButtonVolverAProfesor)))
                 .addContainerGap(111, Short.MAX_VALUE))
             .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
@@ -398,7 +411,9 @@ public class Visualizar extends javax.swing.JPanel {
                 .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonDam)
                     .addComponent(jButtonDaw))
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
+                .addComponent(jButtonVolverAProfesor)
+                .addGap(38, 38, 38))
             .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInsertarAlumLayout.createSequentialGroup()
                     .addContainerGap(88, Short.MAX_VALUE)
@@ -512,6 +527,40 @@ public class Visualizar extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButtonMediaActionPerformed
 
+    private void jButtonActualizarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarDatosActionPerformed
+        
+        if(jDatePickerProfesor.getModel().isSelected())
+        {
+                /*System.out.println(profeActual.getFechaIncorporacion().getTime());
+                System.out.println(profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+"-"
+                                   +(profeActual.getFechaIncorporacion().get(Calendar.MONTH)+1)+"-"
+                                   +profeActual.getFechaIncorporacion().get(Calendar.YEAR));*/
+           
+            GregorianCalendar fechaActualizada=obtenerNuevaFecha();
+            java.util.Date d= fechaActualizada.getTime();
+                    
+            profeActual.setFechaIncorporacion(fechaActualizada, d);
+           
+                /*System.out.println(profeActual.getFechaIncorporacion().getTime());
+                System.out.println(profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+"-"
+                                   +(profeActual.getFechaIncorporacion().get(Calendar.MONTH)+1)+"-"
+                                   +profeActual.getFechaIncorporacion().get(Calendar.YEAR));*/
+        }
+        else
+        {
+           
+            
+            
+            
+        }
+    }//GEN-LAST:event_jButtonActualizarDatosActionPerformed
+
+    private void jButtonVolverAProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverAProfesorActionPerformed
+       
+        colocarPanel(jPanelProfesor, jPanelInsertarAlum);
+        
+    }//GEN-LAST:event_jButtonVolverAProfesorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonActualizarDatos;
@@ -522,6 +571,7 @@ public class Visualizar extends javax.swing.JPanel {
     private javax.swing.JButton jButtonInsertarAlum;
     private javax.swing.JButton jButtonMedia;
     private javax.swing.JButton jButtonSig;
+    private javax.swing.JButton jButtonVolverAProfesor;
     private org.jdatepicker.JDatePicker jDatePickerProfesor;
     private javax.swing.JLabel jLabelCabecera;
     private javax.swing.JLabel jLabelDni;
@@ -552,6 +602,16 @@ public class Visualizar extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 
+    
+     public Profesor getProfeActual() {
+        return profeActual;
+    }
+
+    public void setProfeActual(Profesor profeActual) {
+        this.profeActual = profeActual;
+    }
+    
+    
     private void getAlumnos(ArrayList<Alumno> listadoAlumn, ArrayList<Alumno> listaProfesor)
     {
         for (int i = 0; i < listadoAlumn.size(); i++) {
@@ -637,7 +697,7 @@ public class Visualizar extends javax.swing.JPanel {
         model.setRowCount(0);
     }
     
-    public void colocarPanel(JPanel panelVisible, JPanel panelInvisible)
+    private void colocarPanel(JPanel panelVisible, JPanel panelInvisible)
     {
              
         panelVisible.setVisible(true);
@@ -648,7 +708,7 @@ public class Visualizar extends javax.swing.JPanel {
     }
    
 
-    public void actualizaBotones()
+    private void actualizaBotones()
     {
         if(venP.getGestionProf().getTotalRowNumber()==0)
         {
@@ -736,10 +796,8 @@ public class Visualizar extends javax.swing.JPanel {
             jTextFieldNombre.setText(profeActual.getNombre());
             
             
-            System.out.println(jDatePickerProfesor.getModel().getDay()+" "+
-                               jDatePickerProfesor.getModel().getMonth()+" "+
-                               jDatePickerProfesor.getModel().getYear());
-            System.out.println(jDatePickerProfesor);
+            
+           
         }
             
     }
@@ -753,7 +811,7 @@ public class Visualizar extends javax.swing.JPanel {
         jTextFieldInsertarProfesor.setText("");
     }
 
-    public void actualizarImagen()
+    private void actualizarImagen()
     {
         jPanelImagen.removeAll();
         
@@ -765,5 +823,22 @@ public class Visualizar extends javax.swing.JPanel {
         jPanelImagen.setVisible(false);
         jPanelImagen.setVisible(true);
         
+    }
+
+    private GregorianCalendar obtenerNuevaFecha() 
+    {
+        return new GregorianCalendar
+        (  jDatePickerProfesor.getModel().getYear(), 
+          (jDatePickerProfesor.getModel().getMonth()),//no necesito quitarle 1 
+           jDatePickerProfesor.getModel().getDay() 
+        );
+        
+            
+            
+            
+        
+         
+            
+            
     }
 }

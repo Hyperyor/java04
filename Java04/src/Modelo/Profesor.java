@@ -67,6 +67,12 @@ public class Profesor {
         this.fechaIncorporacion.setTime(d);
        
     }
+    
+    public void setFechaIncorporacion(GregorianCalendar fechaIncorporacion) {
+        this.fechaIncorporacion = fechaIncorporacion;
+        
+       
+    }
 
     public float getMediaAlumnos() {
         return mediaAlumnos;
@@ -83,6 +89,8 @@ public class Profesor {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+    
 
     
 }

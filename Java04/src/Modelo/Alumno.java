@@ -52,9 +52,17 @@ public class Alumno {
     }
 
     public void setFechaNacimiento(GregorianCalendar fechaNacimiento, Date d) {
-      
+        
+        
         this.fechaNacimiento = fechaNacimiento;
         this.fechaNacimiento.setTime(d);
+    }
+    
+     public void setFechaNacimiento2(GregorianCalendar fechaNacimiento) {
+        
+        
+        this.fechaNacimiento = fechaNacimiento;
+        
     }
 
     public String getProAlumno() {
