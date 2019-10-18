@@ -21,6 +21,9 @@ public class Visualizar extends javax.swing.JPanel {
     private ImageIcon fotoProfe;
     private ArrayList<Alumno> listaProfesor;
     
+    private boolean notaActualizada;
+    private boolean fechaUpdated;
+    
     private String tipoAlumnoAlta = "";
     
     DefaultTableModel model;
@@ -563,43 +566,20 @@ public class Visualizar extends javax.swing.JPanel {
         
         profeActual.setMediaAlumnos(media);
         
+        notaActualizada=true;
+        
     }//GEN-LAST:event_jButtonMediaActionPerformed
 
     private void jButtonActualizarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarDatosActionPerformed
         
-        if(jDatePickerProfesor.getModel().isSelected())
+        if(fechaUpdated || notaActualizada)
         {
-            if(jDatePickerProfesor.getModel().getValue() == null)
-            {
-                System.out.println("\nhola");
-            }
-            
-                System.out.println(profeActual.getFechaIncorporacion().getTime());
-                System.out.println(profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+"-"
-                                   +(profeActual.getFechaIncorporacion().get(Calendar.MONTH)+1)+"-"
-                                   +profeActual.getFechaIncorporacion().get(Calendar.YEAR));
-           
-            GregorianCalendar fechaActualizada=obtenerNuevaFecha();
-            java.util.Date d= fechaActualizada.getTime();
-                    
-            profeActual.setFechaIncorporacion(fechaActualizada, d);
-           
-                System.out.println(profeActual.getFechaIncorporacion().getTime());
-                System.out.println(profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+"-"
-                                   +(profeActual.getFechaIncorporacion().get(Calendar.MONTH)+1)+"-"
-                                   +profeActual.getFechaIncorporacion().get(Calendar.YEAR));
                 
-                jDatePickerProfesor.getModel().setSelected(false);
+             venP.getGestionProf().updateProf(profeActual);
+             resetDatosactualizar();
         }
-        else
-        {
-           
-            jDatePickerProfesor.getFormattedTextField().setText(""+profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+
-                                                                "/"  +(profeActual.getFechaIncorporacion().get(Calendar.MONTH)+1)+
-                                                                "/"  +profeActual.getFechaIncorporacion().get(Calendar.YEAR));
-            
-            
-        }
+        
+        actualizarCamposProf();
     }//GEN-LAST:event_jButtonActualizarDatosActionPerformed
 
     private void jButtonVolverAProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverAProfesorActionPerformed
@@ -611,7 +591,12 @@ public class Visualizar extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonVolverAProfesorActionPerformed
 
     private void datePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datePickerActionPerformed
-        System.out.println("\nhola");
+        GregorianCalendar fechaActualizada=obtenerNuevaFecha();
+            java.util.Date d= fechaActualizada.getTime();
+                    
+        profeActual.setFechaIncorporacion(fechaActualizada, d);
+
+        fechaUpdated=true;
     }//GEN-LAST:event_datePickerActionPerformed
 
     private void jButtonAceptarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarAltaActionPerformed
@@ -704,6 +689,13 @@ public class Visualizar extends javax.swing.JPanel {
     private javax.swing.JTextField textFieldMesNac;
     // End of variables declaration//GEN-END:variables
 
+    
+    private void resetDatosactualizar()
+    {
+        
+        notaActualizada=false;
+        fechaUpdated=false;
+    }
     
     private Alumno createNewAlumn()
     {
@@ -887,6 +879,8 @@ public class Visualizar extends javax.swing.JPanel {
         actualizarImagen();
         actualizarTable();
         actualizarListaAlumnosProfesor();
+        
+        resetDatosactualizar();
         
     }
     
