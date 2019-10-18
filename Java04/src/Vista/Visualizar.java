@@ -21,6 +21,8 @@ public class Visualizar extends javax.swing.JPanel {
     private ImageIcon fotoProfe;
     private ArrayList<Alumno> listaProfesor;
     
+    private String tipoAlumnoAlta = "";
+    
     DefaultTableModel model;
     
     public Visualizar(VentanaPrincipal p) {
@@ -28,7 +30,7 @@ public class Visualizar extends javax.swing.JPanel {
        
         venP=p;
         
-       model = (DefaultTableModel) jTableAlum.getModel();
+        model = (DefaultTableModel) jTableAlum.getModel();
         
     }
 
@@ -79,11 +81,14 @@ public class Visualizar extends javax.swing.JPanel {
         jLabelInsertarNota = new javax.swing.JLabel();
         jTextFieldInsertarCodigo = new javax.swing.JTextField();
         jTextFieldInsertarNombre = new javax.swing.JTextField();
-        jTextFieldInsertarFechaIncorporacion = new javax.swing.JTextField();
         jTextFieldInsertarProfesor = new javax.swing.JTextField();
         jTextFieldInsertarNota = new javax.swing.JTextField();
         jLabelCabecera = new javax.swing.JLabel();
+        textFieldDiaNac = new javax.swing.JTextField();
+        textFieldMesNac = new javax.swing.JTextField();
+        textFieldAnioNac = new javax.swing.JTextField();
         jButtonVolverAProfesor = new javax.swing.JButton();
+        jButtonAceptarAlta = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(800, 575));
         setMinimumSize(new java.awt.Dimension(800, 575));
@@ -301,8 +306,18 @@ public class Visualizar extends javax.swing.JPanel {
         jPanelInsertarAlum.setPreferredSize(new java.awt.Dimension(600, 500));
 
         jButtonDam.setText("Nuevo Dam");
+        jButtonDam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDamActionPerformed(evt);
+            }
+        });
 
         jButtonDaw.setText("Nuevo Daw");
+        jButtonDaw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDawActionPerformed(evt);
+            }
+        });
 
         jLabelInsertarCodigoAlumno.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabelInsertarCodigoAlumno.setText("CÓDIGO");
@@ -313,21 +328,15 @@ public class Visualizar extends javax.swing.JPanel {
 
         jLabelInsertarProfesor.setText("PROFESOR");
 
-        jLabelInsertarNota.setText("NOTA");
+        jLabelInsertarNota.setText("NOTA MOVIL:");
 
-        jTextFieldInsertarCodigo.setText("jTextField1");
-
-        jTextFieldInsertarNombre.setText("jTextField2");
-
-        jTextFieldInsertarFechaIncorporacion.setText("jTextField3");
-
-        jTextFieldInsertarProfesor.setText("jTextField4");
-
-        jTextFieldInsertarNota.setText("jTextField5");
+        jTextFieldInsertarProfesor.setEditable(false);
 
         jLabelCabecera.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelCabecera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCabecera.setText("Insertar alumno de Dam");
+
+        textFieldAnioNac.setText("      ");
 
         javax.swing.GroupLayout jPanelInsertarDamLayout = new javax.swing.GroupLayout(jPanelInsertarDam);
         jPanelInsertarDam.setLayout(jPanelInsertarDamLayout);
@@ -342,12 +351,17 @@ public class Visualizar extends javax.swing.JPanel {
                     .addComponent(jLabelInsertarProfesor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelInsertarNota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldInsertarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldInsertarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldInsertarFechaIncorporacion, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldInsertarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldInsertarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldInsertarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelInsertarDamLayout.createSequentialGroup()
+                        .addComponent(textFieldDiaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textFieldMesNac, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textFieldAnioNac)))
                 .addContainerGap(107, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInsertarDamLayout.createSequentialGroup()
                 .addContainerGap()
@@ -367,11 +381,13 @@ public class Visualizar extends javax.swing.JPanel {
                 .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelInsertarNombre)
                     .addComponent(jTextFieldInsertarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(20, 20, 20)
                 .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelInsertarFechaIncorporacion)
-                    .addComponent(jTextFieldInsertarFechaIncorporacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addComponent(textFieldDiaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldMesNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldAnioNac, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(jPanelInsertarDamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelInsertarProfesor)
                     .addComponent(jTextFieldInsertarProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -389,21 +405,29 @@ public class Visualizar extends javax.swing.JPanel {
             }
         });
 
+        jButtonAceptarAlta.setText("Aceptar");
+        jButtonAceptarAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAceptarAltaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelInsertarAlumLayout = new javax.swing.GroupLayout(jPanelInsertarAlum);
         jPanelInsertarAlum.setLayout(jPanelInsertarAlumLayout);
         jPanelInsertarAlumLayout.setHorizontalGroup(
             jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
-                .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jButtonDam)
-                        .addGap(143, 143, 143)
-                        .addComponent(jButtonDaw))
-                    .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jButtonVolverAProfesor)))
+                .addGap(120, 120, 120)
+                .addComponent(jButtonDam)
+                .addGap(143, 143, 143)
+                .addComponent(jButtonDaw)
                 .addContainerGap(111, Short.MAX_VALUE))
+            .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jButtonVolverAProfesor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonAceptarAlta)
+                .addGap(121, 121, 121))
             .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelInsertarAlumLayout.createSequentialGroup()
                     .addContainerGap()
@@ -418,7 +442,9 @@ public class Visualizar extends javax.swing.JPanel {
                     .addComponent(jButtonDam)
                     .addComponent(jButtonDaw))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
-                .addComponent(jButtonVolverAProfesor)
+                .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVolverAProfesor)
+                    .addComponent(jButtonAceptarAlta))
                 .addGap(38, 38, 38))
             .addGroup(jPanelInsertarAlumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInsertarAlumLayout.createSequentialGroup()
@@ -431,23 +457,27 @@ public class Visualizar extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelInsertarAlum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanelInsertarAlum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jPanelProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelInsertarAlum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanelInsertarAlum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jPanelProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -480,6 +510,8 @@ public class Visualizar extends javax.swing.JPanel {
        
         
         colocarPanel(jPanelInsertarAlum, jPanelProfesor);
+        
+        jTextFieldInsertarProfesor.setText(profeActual.getDni());
         
     }//GEN-LAST:event_jButtonInsertarAlumActionPerformed
 
@@ -574,14 +606,63 @@ public class Visualizar extends javax.swing.JPanel {
        
         colocarPanel(jPanelProfesor, jPanelInsertarAlum);
         
+        resetAlta();
+        
     }//GEN-LAST:event_jButtonVolverAProfesorActionPerformed
 
     private void datePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datePickerActionPerformed
         System.out.println("\nhola");
     }//GEN-LAST:event_datePickerActionPerformed
 
+    private void jButtonAceptarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarAltaActionPerformed
+        
+        if(datosCorrectos())
+        {
+            Alumno al = createNewAlumn();
+            
+            //listaProfesor.add(al);
+            
+            venP.getGestAlumn().getListadoAlumnos().add(al);
+            actualizarTable();
+            actualizarListaAlumnosProfesor();
+            
+            JOptionPane.showMessageDialog(null, 
+                                "Se ha dado de alta al alumno", "Ok", 
+                                JOptionPane.INFORMATION_MESSAGE);
+            
+            venP.getGestAlumn().insertAlumn(al);
+        }
+        else
+        {
+        
+            JOptionPane.showMessageDialog(null, 
+                                "Los datos introducidos son incorrectos", "Error", 
+                                JOptionPane.WARNING_MESSAGE);
+        }
+        
+        colocarPanel(jPanelProfesor, jPanelInsertarAlum);
+        
+        resetAlta();
+        
+    }//GEN-LAST:event_jButtonAceptarAltaActionPerformed
+
+    private void jButtonDawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDawActionPerformed
+        tipoAlumnoAlta = "Daw";
+        
+        jLabelInsertarNota.setText("NOTA WEB: ");
+        jLabelCabecera.setText("Insertar alumno de Daw");
+    }//GEN-LAST:event_jButtonDawActionPerformed
+
+    private void jButtonDamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDamActionPerformed
+        tipoAlumnoAlta = "Dam";
+        
+        jLabelInsertarNota.setText("NOTA MOVIL: ");
+        jLabelCabecera.setText("Insertar alumno de Dam");
+    }//GEN-LAST:event_jButtonDamActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAceptarAlta;
     private javax.swing.JButton jButtonActualizarDatos;
     private javax.swing.JButton jButtonAlumnos;
     private javax.swing.JButton jButtonAtras;
@@ -613,14 +694,107 @@ public class Visualizar extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldDni;
     private javax.swing.JTextField jTextFieldEdad;
     private javax.swing.JTextField jTextFieldInsertarCodigo;
-    private javax.swing.JTextField jTextFieldInsertarFechaIncorporacion;
     private javax.swing.JTextField jTextFieldInsertarNombre;
     private javax.swing.JTextField jTextFieldInsertarNota;
     private javax.swing.JTextField jTextFieldInsertarProfesor;
     private javax.swing.JTextField jTextFieldMedia;
     private javax.swing.JTextField jTextFieldNombre;
+    private javax.swing.JTextField textFieldAnioNac;
+    private javax.swing.JTextField textFieldDiaNac;
+    private javax.swing.JTextField textFieldMesNac;
     // End of variables declaration//GEN-END:variables
 
+    
+    private Alumno createNewAlumn()
+    {
+        //se crea el alumno
+
+                     
+        if(tipoAlumnoAlta.equals("Dam"))
+        {
+            AlumnoDam alD = new AlumnoDam();
+
+            alD.setCodigoAlumno(convertirInt(jTextFieldInsertarCodigo.getText()));
+
+            alD.setApeNom(jTextFieldInsertarNombre.getText());
+
+        GregorianCalendar fechaNac = new GregorianCalendar(
+                convertirInt(textFieldAnioNac.getText()),
+                (convertirInt(textFieldMesNac.getText()) - 1),
+                convertirInt(textFieldDiaNac.getText()));
+
+            alD.setFechaNacimiento(fechaNac);
+
+            alD.setProAlumno(jTextFieldInsertarProfesor.getText());
+
+            alD.setNotaMovil(convertirFloat(jTextFieldInsertarNota.getText()));
+
+            return alD;
+        }
+        else
+        {
+            AlumnoDaw alW= new AlumnoDaw();
+            
+            alW.setCodigoAlumno(convertirInt(jTextFieldInsertarCodigo.getText()));
+
+            alW.setApeNom(jTextFieldInsertarNombre.getText());
+
+            GregorianCalendar fechaNac = new GregorianCalendar(
+                convertirInt(textFieldAnioNac.getText()),
+                (convertirInt(textFieldMesNac.getText()) - 1),
+                convertirInt(textFieldDiaNac.getText()));
+
+            alW.setFechaNacimiento(fechaNac);
+
+            alW.setProAlumno(jTextFieldInsertarProfesor.getText());
+
+            alW.setNotaWeb(convertirFloat(jTextFieldInsertarNota.getText()));
+
+            return alW;
+        }
+    }
+    
+    private boolean datosCorrectos()
+    {
+        if(!jTextFieldInsertarCodigo.equals("") && codigoNoRepetido())
+        {
+            if(!jTextFieldInsertarNombre.equals(""))
+            {
+                if(!jTextFieldInsertarNota.equals("") && 
+                        (convertirFloat(jTextFieldInsertarNota.getText()) >= 0 && 
+                        convertirFloat(jTextFieldInsertarNota.getText()) <= 10))
+                {
+                    if(jTextFieldInsertarProfesor.getText().equals(profeActual.getDni()))
+                    {
+                        if(correctDate(convertirInt(textFieldDiaNac.getText()), 
+                                convertirInt(textFieldMesNac.getText()), 
+                                convertirInt(textFieldAnioNac.getText())))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        
+        return false;
+    }
+    
+    private boolean codigoNoRepetido()
+    {
+        ArrayList<Alumno> lista = venP.getGestAlumn().getListadoAlumnos();
+        
+        for (int i = 0; i < lista.size(); i++) {
+            
+            if(lista.get(1).getCodigoAlumno() == convertirInt(jTextFieldInsertarCodigo.getText()))
+            {
+                return false;
+            }
+            
+        }
+        
+        return true;
+    }
     
      public Profesor getProfeActual() {
         return profeActual;
@@ -630,6 +804,22 @@ public class Visualizar extends javax.swing.JPanel {
         this.profeActual = profeActual;
     }
     
+    private void resetAlta()
+    {
+        jTextFieldInsertarCodigo.setText("");
+        jTextFieldInsertarNombre.setText("");
+        jTextFieldInsertarNota.setText("");
+        jTextFieldInsertarProfesor.setText("");
+        
+        textFieldDiaNac.setText("");
+        textFieldMesNac.setText("");
+        textFieldAnioNac.setText("");
+        
+        
+        jLabelInsertarNota.setText("NOTA MOVIL: ");
+        jLabelCabecera.setText("Insertar alumno de Dam");
+        tipoAlumnoAlta = "Dam";
+    }
     
     private void getAlumnos(ArrayList<Alumno> listadoAlumn, ArrayList<Alumno> listaProfesor)
     {
@@ -687,7 +877,8 @@ public class Visualizar extends javax.swing.JPanel {
         //Campos profesor
         actualizarCamposProf();
         //Campos Inserccion alumno
-        emptyCamposAlum();
+        //emptyCamposAlum();
+        resetAlta();
         //Ponemos el panel visible al de profesores e invisible el de alumno
          colocarPanel(jPanelProfesor, jPanelInsertarAlum);
         //actualizamos botones
@@ -726,6 +917,37 @@ public class Visualizar extends javax.swing.JPanel {
         
     }
    
+    private float convertirFloat(String texto)
+    {
+        float f = 0;
+         
+        try
+        {
+          f =  Float.parseFloat(texto);
+        }
+        catch(NumberFormatException e)
+        {
+          //return Float.NaN; // No es un número (valor float)
+        }
+         
+        return f;
+    }
+    
+    private int convertirInt(String texto)
+    {
+        int n = 0;
+         
+        try
+        {
+          n = Integer.parseInt(texto);
+        }
+        catch(NumberFormatException e)
+        {
+          //return Integer.MIN_VALUE; // valor más pequeño
+        }
+         
+        return n;
+    }
 
     private void actualizaBotones()
     {
@@ -821,14 +1043,14 @@ public class Visualizar extends javax.swing.JPanel {
             
     }
 
-    private void emptyCamposAlum() 
-    {
-        jTextFieldInsertarCodigo.setText("");
-        jTextFieldInsertarFechaIncorporacion.setText("");
-        jTextFieldInsertarNombre.setText("");
-        jTextFieldInsertarNota.setText("");
-        jTextFieldInsertarProfesor.setText("");
-    }
+//    private void emptyCamposAlum() 
+//    {
+//        jTextFieldInsertarCodigo.setText("");
+//        jTextFieldInsertarFechaIncorporacion.setText("");
+//        jTextFieldInsertarNombre.setText("");
+//        jTextFieldInsertarNota.setText("");
+//        jTextFieldInsertarProfesor.setText("");
+//    }
 
     private void actualizarImagen()
     {
@@ -851,13 +1073,60 @@ public class Visualizar extends javax.swing.JPanel {
           (jDatePickerProfesor.getModel().getMonth()),//no necesito quitarle 1 
            jDatePickerProfesor.getModel().getDay() 
         );
+      
+    }
+    
+     private boolean correctDate(int day, int month, int year)
+    {
+        if(year > 0)
+        {
+            if(month >= 1 && month <= 12)
+            {
+                if(day >= 1 && day <= checkMonthsTotalDays(month, year))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    private int checkMonthsTotalDays(int month, int year)
+    {
+        switch(month)
+        {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12: return 31;
+        case 4:
+        case 6:
+        case 9:
+        case 11: return 30;
+        case 2: 
+               if(comprobarBisiesto(year))
+               {
+                   return 29;
+               }
+               else
+               {
+                   return 28;
+               }
+     
+        }   
         
-            
-            
-            
-        
-         
-            
-            
+        return 1;
+    }
+    
+    private boolean comprobarBisiesto(int year)
+    {
+        if((year % 4 == 0) && !((year % 100 == 0) && (year % 400 != 0)))
+        {
+            return true;
+        }
+        return false;
     }
 }

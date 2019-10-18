@@ -58,7 +58,7 @@ public class Alumno {
         this.fechaNacimiento.setTime(d);
     }
     
-     public void setFechaNacimiento2(GregorianCalendar fechaNacimiento) {
+     public void setFechaNacimiento(GregorianCalendar fechaNacimiento) {
         
         
         this.fechaNacimiento = fechaNacimiento;
