@@ -52,7 +52,8 @@ public class GestionBD {
         
     }
     
-    //metodo que crea y devuelve un statement
+    //metodo que crea y devuelve un statement sensitivo, que nos permite
+    //desplazarnos por el ResultSet y actualizar los datos
     public static Statement getSensitiveStatement()
     {
         Statement stmt = null;
@@ -70,6 +71,8 @@ public class GestionBD {
          return stmt;
     }
     
+    //metodo que devulve un statement simple que solo permite recorrerlo
+    //en una direccion y no permite actualizar datos
     public static Statement getSimpleStatement()
     {
         Statement stmt = null;

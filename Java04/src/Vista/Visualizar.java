@@ -544,6 +544,8 @@ public class Visualizar extends javax.swing.JPanel {
         
         float acum = 0;
         
+        float valorAnterior = convertirFloat(jTextFieldMedia.getText());
+        
         for (int i = 0; i < listaProfesor.size(); i++) {
             
             if(listaProfesor.get(i) instanceof AlumnoDaw)
@@ -562,12 +564,21 @@ public class Visualizar extends javax.swing.JPanel {
         
         float media = acum / listaProfesor.size();
         
-        jTextFieldMedia.setText("" + media);
+        if(media != valorAnterior)
+        {
+            jTextFieldMedia.setText("" + media);
         
-        profeActual.setMediaAlumnos(media);
-        
-        notaActualizada=true;
-        
+            profeActual.setMediaAlumnos(media);
+
+            notaActualizada=true;
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, 
+                                "No hay nueva media", "Calculo no realizado", 
+                                JOptionPane.WARNING_MESSAGE);
+        }
+ 
     }//GEN-LAST:event_jButtonMediaActionPerformed
 
     private void jButtonActualizarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarDatosActionPerformed
@@ -577,6 +588,16 @@ public class Visualizar extends javax.swing.JPanel {
                 
              venP.getGestionProf().updateProf(profeActual);
              resetDatosactualizar();
+             
+             JOptionPane.showMessageDialog(null, 
+                                "Datos actualizados", "Actualizacion realizada", 
+                                JOptionPane.INFORMATION_MESSAGE);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, 
+                                "No hay datos actualizados", "Actualizacion no realizada", 
+                                JOptionPane.INFORMATION_MESSAGE);
         }
         
         actualizarCamposProf();
