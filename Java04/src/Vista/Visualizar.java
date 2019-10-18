@@ -201,6 +201,12 @@ public class Visualizar extends javax.swing.JPanel {
             }
         });
 
+        jDatePickerProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                datePickerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelProfesorLayout = new javax.swing.GroupLayout(jPanelProfesor);
         jPanelProfesor.setLayout(jPanelProfesorLayout);
         jPanelProfesorLayout.setHorizontalGroup(
@@ -531,25 +537,34 @@ public class Visualizar extends javax.swing.JPanel {
         
         if(jDatePickerProfesor.getModel().isSelected())
         {
-                /*System.out.println(profeActual.getFechaIncorporacion().getTime());
+            if(jDatePickerProfesor.getModel().getValue() == null)
+            {
+                System.out.println("\nhola");
+            }
+            
+                System.out.println(profeActual.getFechaIncorporacion().getTime());
                 System.out.println(profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+"-"
                                    +(profeActual.getFechaIncorporacion().get(Calendar.MONTH)+1)+"-"
-                                   +profeActual.getFechaIncorporacion().get(Calendar.YEAR));*/
+                                   +profeActual.getFechaIncorporacion().get(Calendar.YEAR));
            
             GregorianCalendar fechaActualizada=obtenerNuevaFecha();
             java.util.Date d= fechaActualizada.getTime();
                     
             profeActual.setFechaIncorporacion(fechaActualizada, d);
            
-                /*System.out.println(profeActual.getFechaIncorporacion().getTime());
+                System.out.println(profeActual.getFechaIncorporacion().getTime());
                 System.out.println(profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+"-"
                                    +(profeActual.getFechaIncorporacion().get(Calendar.MONTH)+1)+"-"
-                                   +profeActual.getFechaIncorporacion().get(Calendar.YEAR));*/
+                                   +profeActual.getFechaIncorporacion().get(Calendar.YEAR));
+                
+                jDatePickerProfesor.getModel().setSelected(false);
         }
         else
         {
            
-            
+            jDatePickerProfesor.getFormattedTextField().setText(""+profeActual.getFechaIncorporacion().get(Calendar.DAY_OF_MONTH)+
+                                                                "/"  +(profeActual.getFechaIncorporacion().get(Calendar.MONTH)+1)+
+                                                                "/"  +profeActual.getFechaIncorporacion().get(Calendar.YEAR));
             
             
         }
@@ -560,6 +575,10 @@ public class Visualizar extends javax.swing.JPanel {
         colocarPanel(jPanelProfesor, jPanelInsertarAlum);
         
     }//GEN-LAST:event_jButtonVolverAProfesorActionPerformed
+
+    private void datePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datePickerActionPerformed
+        System.out.println("\nhola");
+    }//GEN-LAST:event_datePickerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -778,7 +797,7 @@ public class Visualizar extends javax.swing.JPanel {
         {
             jTextFieldDni.setText("");
             jTextFieldEdad.setText("");
-           jDatePickerProfesor.getFormattedTextField().setText("");
+            jDatePickerProfesor.getFormattedTextField().setText("");
             jTextFieldMedia.setText("");
             jTextFieldNombre.setText("");
             
