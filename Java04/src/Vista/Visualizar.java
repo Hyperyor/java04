@@ -799,7 +799,7 @@ public class Visualizar extends javax.swing.JPanel {
         
         for (int i = 0; i < lista.size(); i++) {
             
-            if(lista.get(1).getCodigoAlumno() == convertirInt(jTextFieldInsertarCodigo.getText()))
+            if(lista.get(i).getCodigoAlumno() == convertirInt(jTextFieldInsertarCodigo.getText()))
             {
                 return false;
             }
@@ -834,19 +834,7 @@ public class Visualizar extends javax.swing.JPanel {
         tipoAlumnoAlta = "Dam";
     }
     
-    private void getAlumnos(ArrayList<Alumno> listadoAlumn, ArrayList<Alumno> listaProfesor)
-    {
-        for (int i = 0; i < listadoAlumn.size(); i++) {
-            
-            Alumno al = (Alumno)listadoAlumn.get(i);
-            
-            if(profeActual.getDni().equals(al.getProAlumno()))
-            {
-                listaProfesor.add(al);
-            }
-            
-        }
-    }
+    
 
     private Object[] getDatos(Alumno al)
     {
@@ -903,6 +891,20 @@ public class Visualizar extends javax.swing.JPanel {
         
         resetDatosactualizar();
         
+    }
+    
+    private void getAlumnos(ArrayList<Alumno> listadoAlumn, ArrayList<Alumno> listaProfesor)
+    {
+        for (int i = 0; i < listadoAlumn.size(); i++) {
+            
+            Alumno al = (Alumno)listadoAlumn.get(i);
+            
+            if(profeActual.getDni().equals(al.getProAlumno()))
+            {
+                listaProfesor.add(al);
+            }
+            
+        }
     }
     
     private void actualizarListaAlumnosProfesor()
