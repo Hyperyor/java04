@@ -30,5 +30,13 @@ public class Pruebas {
             System.out.println("No conection");
         }
         
+        GestionarPedidos ge=new GestionarPedidos("hola");
+        
+        
+        
+        System.out.println(ge.obtenerSigPed().getNumeroPedido());
+        System.out.println(ge.obtenerSigPed().getNumeroPedido());
+        System.out.println(ge.obtenerAnteriorPed().getNumeroPedido());
+         
     }
 }

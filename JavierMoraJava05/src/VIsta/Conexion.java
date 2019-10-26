@@ -111,8 +111,12 @@ public class Conexion extends javax.swing.JPanel {
         String usuario=jTextFieldUsuario.getText();
         String contraseña=jTextFieldContraseña.getText();
         
+        venP.conexionBaseDato();
+        
         try 
         {
+            //Marcamos el usuario
+            venP.setNombreUsuario(usuario);
             ConexionValidacion.realizaStatementValidacion(contraseña, usuario);
             //indicamos que esta conectado
             venP.setjMenuConexion(Color.green);
@@ -122,6 +126,10 @@ public class Conexion extends javax.swing.JPanel {
             venP.cambioDePanel(venP.getjPanelVerPedidos());
             //reseteamos los campos de contraseña y usuario
             reset();
+            //Instanciamos un objeto de gestionPedidos para ver los pedidos del usuario
+            venP.getjPanelVerPedidos().instanciarGestionPedidos();
+            //reseteamos el panel de pedidos una vez estamos dentro de un usuario
+            venP.getjPanelVerPedidos().reset();
             
         }
         catch(SQLException e)

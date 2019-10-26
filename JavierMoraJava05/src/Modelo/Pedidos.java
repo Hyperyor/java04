@@ -44,6 +44,12 @@ public class Pedidos {
     public void setFechaPedido(GregorianCalendar fechaPedido) {
         this.fechaPedido = fechaPedido;
     }
+    
+     public void setFechaPedido(GregorianCalendar fechaIncorporacion, Date d) {
+        this.fechaPedido = fechaIncorporacion;
+        this.fechaPedido.setTime(d);
+       
+    }
 
     public String getDireccion() {
         return direccion;

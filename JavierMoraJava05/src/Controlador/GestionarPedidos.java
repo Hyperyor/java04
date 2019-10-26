@@ -1,7 +1,7 @@
 
 package Controlador;
 
-import Modelo.Consultas;
+import Modelo.ConsultasPedido;
 import Modelo.Pedidos;
 import java.sql.*;
 import java.util.GregorianCalendar;
@@ -12,20 +12,24 @@ public class GestionarPedidos {
     private String usuario;
     private PreparedStatement statementPedidos;
     private ResultSet resultadoConsulta;
+    private Pedidos pedido;
+    private int numFilas;
     
     public GestionarPedidos(String usuario) throws SQLException
     {
         this.usuario=usuario;
         
+        
         montarStatement ();
-       
         creacionResultSet();//lanzara la exepcion si no hay pedidos y se capturara en la vista para mostrar el mensaje
+        calcularFilasPedidos();//Se calculan el numero de filas para controlar los pedidos
+        pedido=new Pedidos();
         
     }
     
     private void  montarStatement () 
     {
-        Consultas consultaPedidos=new Consultas();
+        ConsultasPedido consultaPedidos=new ConsultasPedido();
         String consul=consultaPedidos.getConsultaPedidos();
         
         try
@@ -44,22 +48,31 @@ public class GestionarPedidos {
     private void creacionResultSet() throws SQLException
     {
         
-        
            statementPedidos.setString(1, usuario);
            resultadoConsulta=statementPedidos.executeQuery();
            
     }
+
+    public Pedidos getPedido() {
+        return pedido;
+    }
+
+    public int getNumFilas() {
+        return numFilas;
+    }
     
-    public int cantidadDePedidos()
+    
+    
+    private void calcularFilasPedidos()
     {
-        int numeroDeFilas = 0;
+        
         
          try
          {
-            resultadoConsulta.afterLast();
-            numeroDeFilas=resultadoConsulta.getRow();//devuelve el numero de la ultima 
+            resultadoConsulta.last();
+            numFilas=resultadoConsulta.getRow();//devuelve el numero de la ultima 
             resultadoConsulta.beforeFirst();
-            return numeroDeFilas;
+          
             
          }
          catch(SQLException e)
@@ -68,28 +81,31 @@ public class GestionarPedidos {
              
          }
          
-         return numeroDeFilas;
+         
             
     }
     
     public Pedidos obtenerSigPed()
     {
         
-        Pedidos pedido=new Pedidos();
+        
         
         try{    
-           if(resultadoConsulta.next())
-           {
-               pedido.setNumeroPedido(resultadoConsulta.getInt("num_pedido"));
-               pedido.setNif(resultadoConsulta.getString("NIF"));
-               pedido.setCodigoPostal(resultadoConsulta.getString("codigo_pos"));
-               //pedido.setFechaPedido(new GregorianCalendar(resultadoConsulta.getDate("fecha_ped")));
-               
-               pedido.setDireccion(resultadoConsulta.getString("direccion"));
-               pedido.setRutaFoto(resultadoConsulta.getString("imagen"));
-               pedido.setUsuPedidos(resultadoConsulta.getString("usu_pedidos"));
+            if(resultadoConsulta.next())
+            {
+                pedido.setNumeroPedido(resultadoConsulta.getInt("num_pedido"));
+                pedido.setNif(resultadoConsulta.getString("NIF"));
+                pedido.setCodigoPostal(resultadoConsulta.getString("codigo_pos"));
 
-           }
+                Date d=resultadoConsulta.getDate("fecha_ped");
+                pedido.setFechaPedido(new GregorianCalendar(), d);
+
+                pedido.setDireccion(resultadoConsulta.getString("direccion"));
+                pedido.setRutaFoto(resultadoConsulta.getString("imagen"));
+                pedido.setUsuPedidos(resultadoConsulta.getString("usu_pedidos"));
+
+                return pedido;
+            }
            
         }
         catch(SQLException e)
@@ -103,28 +119,139 @@ public class GestionarPedidos {
     public Pedidos obtenerAnteriorPed()
     {
         
-        Pedidos pedido=new Pedidos();
+        
         
         try{    
-           if(resultadoConsulta.previous())
+           
+            if(resultadoConsulta.previous())
            {
                pedido.setNumeroPedido(resultadoConsulta.getInt("num_pedido"));
                pedido.setNif(resultadoConsulta.getString("NIF"));
                pedido.setCodigoPostal(resultadoConsulta.getString("codigo_pos"));
-               //pedido.setFechaPedido(new GregorianCalendar(resultadoConsulta.getDate("fecha_ped")));
+               
+               Date d=resultadoConsulta.getDate("fecha_ped");
+               pedido.setFechaPedido(new GregorianCalendar(), d);
                
                pedido.setDireccion(resultadoConsulta.getString("direccion"));
                pedido.setRutaFoto(resultadoConsulta.getString("imagen"));
                pedido.setUsuPedidos(resultadoConsulta.getString("usu_pedidos"));
-
+               
+               return pedido;
            }
            
         }
         catch(SQLException e)
         {
-            
+            return null;//no hay pedidos
         }
         
         return null;//no hay pedidos 
+    }
+    
+    public boolean esElUltimo()
+    {
+         try
+         {
+            if(resultadoConsulta.isLast())
+            {
+                  return true;
+            }
+            else
+            {
+                return false;
+            }
+         }
+         catch(SQLException e)
+         {
+             return false;
+         }
+        
+    }
+    
+    public boolean esElPrimero()
+    {
+         try
+         {
+            if(resultadoConsulta.isFirst())
+            {
+                  return true;
+            }
+            else
+            {
+                return false;
+            }
+         }
+         catch(SQLException e)
+         {
+             return false;
+         }
+        
+    }
+    
+    public Pedidos obtenerPrimero()
+    {
+        
+        
+        try{
+            if(resultadoConsulta.first())
+            {
+                
+                pedido.setNumeroPedido(resultadoConsulta.getInt("num_pedido"));
+                pedido.setNif(resultadoConsulta.getString("NIF"));
+                pedido.setCodigoPostal(resultadoConsulta.getString("codigo_pos"));
+
+                Date d=resultadoConsulta.getDate("fecha_ped");
+                pedido.setFechaPedido(new GregorianCalendar(), d);
+
+                pedido.setDireccion(resultadoConsulta.getString("direccion"));
+                pedido.setRutaFoto(resultadoConsulta.getString("imagen"));
+                pedido.setUsuPedidos(resultadoConsulta.getString("usu_pedidos"));
+                
+                return pedido;
+            }
+            else
+            {
+                return null;
+                
+            }
+        }
+        catch(SQLException e)
+        {
+            return null;
+        }
+        
+    }
+    
+    public Pedidos obtenerUltimo()
+    {
+        try{
+            if(resultadoConsulta.last())
+            {
+            
+                pedido.setNumeroPedido(resultadoConsulta.getInt("num_pedido"));
+                pedido.setNif(resultadoConsulta.getString("NIF"));
+                pedido.setCodigoPostal(resultadoConsulta.getString("codigo_pos"));
+
+                Date d=resultadoConsulta.getDate("fecha_ped");
+                pedido.setFechaPedido(new GregorianCalendar(), d);
+
+                pedido.setDireccion(resultadoConsulta.getString("direccion"));
+                pedido.setRutaFoto(resultadoConsulta.getString("imagen"));
+                pedido.setUsuPedidos(resultadoConsulta.getString("usu_pedidos"));
+                
+                return pedido;
+            }
+            else
+            {
+                return null;
+            }
+            
+            
+        }
+        catch(SQLException e)
+        {
+            return null;
+        }
+        
     }
 }

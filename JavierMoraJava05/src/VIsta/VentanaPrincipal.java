@@ -15,6 +15,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private ComponerPedido jPanelComponerPedido;
     private AcercaDe JDialogAcerca;
     private String NombreUsuario;//se guardará la cadena del nombre del usuario que ha entrado en la bd
+
+    
     
     
     public VentanaPrincipal() {
@@ -26,7 +28,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     jPanelConexion=new Conexion(this);
     jPanelComponerPedido=new ComponerPedido(this);
     
-    conexionBaseDato();
+    
     
     reset();
     
@@ -168,7 +170,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu mainMenu;
     // End of variables declaration//GEN-END:variables
 
-    private void  conexionBaseDato() 
+    public void  conexionBaseDato() 
     {
         if(ConexionValidacion.realizarConexionPostgres() && ConexionValidacion.realizarConexionMysql())
         {
@@ -216,6 +218,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public ComponerPedido getjPanelComponerPedido() {
         return jPanelComponerPedido;
     }
+
+    public void setNombreUsuario(String NombreUsuario) {
+        this.NombreUsuario = NombreUsuario;
+    }
     
     public void reset()
     {
@@ -242,6 +248,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.mainMenu = mainMenu;
     }
     
-    
+    public String getNombreUsuario() 
+    {
+        return NombreUsuario;
+    }
     
 }

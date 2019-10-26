@@ -1,19 +1,26 @@
 
 package VIsta;
 
+import Controlador.ConexionValidacion;
+import Controlador.GestionarPedidos;
 import Modelo.Pedidos;
+import java.sql.SQLException;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
 
 
 public class VisualizarPedidos extends javax.swing.JPanel {
 
    private VentanaPrincipal venP;
    private Pedidos pedidoActual;
+   private GestionarPedidos gestionPedidos;
     
     public VisualizarPedidos(VentanaPrincipal p) {
         initComponents();
         
+        
         venP=p;
-        reset();
+    
     }
 
    
@@ -73,6 +80,7 @@ public class VisualizarPedidos extends javax.swing.JPanel {
 
         jLabelImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelImagen.setText("IMAGEN");
+        jLabelImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButtonAtras.setText("<");
         jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +176,7 @@ public class VisualizarPedidos extends javax.swing.JPanel {
                 .addComponent(jLabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonCambioImagen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonGuardarCambios)
@@ -215,11 +223,16 @@ public class VisualizarPedidos extends javax.swing.JPanel {
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
 
         
+        pedidoActual=gestionPedidos.obtenerAnteriorPed();
+        actualizarCampos();
+        actualizarBotones();
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private void jButtonSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSigActionPerformed
 
-        
+        pedidoActual=gestionPedidos.obtenerSigPed();
+        actualizarCampos();
+        actualizarBotones();
     }//GEN-LAST:event_jButtonSigActionPerformed
 
     private void jButtonAñadirProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirProductoActionPerformed
@@ -264,10 +277,27 @@ public class VisualizarPedidos extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldNumeroPedido;
     // End of variables declaration//GEN-END:variables
 
+    public void instanciarGestionPedidos ()
+    {
+        try
+        {
+            gestionPedidos=new GestionarPedidos(venP.getNombreUsuario());
+        }
+        catch(SQLException e)
+        {
+            
+        }
+    }
+        
+    
+    
     public void reset()
     {
-
+        pedidoActual=gestionPedidos.obtenerPrimero();
         actualizarCampos();
+        actualizarBotones();
+        
+        
     }
 
     
@@ -282,8 +312,95 @@ public class VisualizarPedidos extends javax.swing.JPanel {
          }
          else
          {
-             
+            jTextFieldCodigoCliente.setText(pedidoActual.getUsuPedidos());
+            jTextFieldCodigoPostal.setText(pedidoActual.getCodigoPostal());
+            jTextFieldDireccion.setText(pedidoActual.getDireccion());
+            jTextFieldNumeroPedido.setText(""+pedidoActual.getNumeroPedido());
+            
+            jDatePickerFechaPedido.getFormattedTextField().setText(pedidoActual.getFechaPedido().get(Calendar.DAY_OF_MONTH)+"/"+
+                                                                   (pedidoActual.getFechaPedido().get(Calendar.MONTH)+1)+"/"+
+                                                                   pedidoActual.getFechaPedido().get(Calendar.YEAR));                                             
          }
+    }                           
+    
+    private void accesoAPedidos()
+    {
+        try
+        {
+            gestionPedidos=new GestionarPedidos(ConexionValidacion.getUsuario());//pasamos el usuario validado
+        }
+        catch(SQLException e)
+        {
+            System.out.println("Error: "+e.getErrorCode()+", "+e.getMessage());
+            JOptionPane.showMessageDialog(null, "Pedidos no encontrado", "No tiene pedidos registrados", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    private void actualizarBotones()
+    {
+        
+        
+        if(gestionPedidos.getNumFilas()==0)
+        {
+            jButtonAtras.setEnabled(false);
+            jButtonAñadirProducto.setEnabled(false);
+            jButtonCambioImagen.setEnabled(false);
+            jButtonComposicion.setEnabled(false);
+            jButtonGuardarCambios.setEnabled(false);
+            jButtonSig.setEnabled(false);
+        }
+        else
+        {
+            if(gestionPedidos.getNumFilas()==1)
+            {
+                jButtonAtras.setEnabled(false);
+                jButtonAñadirProducto.setEnabled(true);
+                jButtonCambioImagen.setEnabled(true);
+                jButtonComposicion.setEnabled(true);
+                jButtonGuardarCambios.setEnabled(true);
+                jButtonSig.setEnabled(false);
+                
+            }
+            else
+            {
+                if(gestionPedidos.esElPrimero())
+                {
+                    jButtonAtras.setEnabled(false);
+                    jButtonAñadirProducto.setEnabled(true);
+                    jButtonCambioImagen.setEnabled(true);
+                    jButtonComposicion.setEnabled(true);
+                    jButtonGuardarCambios.setEnabled(true);
+                    jButtonSig.setEnabled(true);
+                }
+                else
+                {
+                    if(gestionPedidos.esElUltimo())
+                    {
+                        jButtonAtras.setEnabled(true);
+                        jButtonAñadirProducto.setEnabled(true);
+                        jButtonCambioImagen.setEnabled(true);
+                        jButtonComposicion.setEnabled(true);
+                        jButtonGuardarCambios.setEnabled(true);
+                        jButtonSig.setEnabled(false);
+                    }
+                    else
+                    {
+                        jButtonAtras.setEnabled(true);
+                        jButtonAñadirProducto.setEnabled(true);
+                        jButtonCambioImagen.setEnabled(true);
+                        jButtonComposicion.setEnabled(true);
+                        jButtonGuardarCambios.setEnabled(true);
+                        jButtonSig.setEnabled(true);
+                        
+                    }
+                    
+                }
+            }
+        
+        
+        }
+
+    
     }
 
 

@@ -4,17 +4,17 @@ package Modelo;
 import java.util.*;
 
 
-public class Consultas {
+public class ConsultasPedido {
     
     private String consultaValidacion="select * from USUARIOS where password=? and usuario=?";
-    private String consultaPedidos="select * from pedidos where usu_pedidos=?";
+    private String consultaPedidos="select * from PEDIDOS where usu_pedidos=?";
     private String consultasComposicion="select * from composicion";
     private String consulasProductos="select * from productos";
     private Object estructuraSimple;
     private ArrayList listaConsulta;
     
     
-    public Consultas()
+    public ConsultasPedido()
     {
         
         
@@ -36,9 +36,6 @@ public class Consultas {
         return consulasProductos;
     }
     
-    public String  ObtenerDatosConsultaValidacion(String result, int numeroDato)
-    {
-        return "";
-    }
+    
     
 }
