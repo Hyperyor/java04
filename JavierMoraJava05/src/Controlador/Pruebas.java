@@ -32,7 +32,7 @@ public class Pruebas {
         
         GestionarPedidos ge=new GestionarPedidos("hola");
         
-        
+        ge.modificarPedido(pedido);
         
         System.out.println(ge.obtenerSigPed().getNumeroPedido());
         System.out.println(ge.obtenerSigPed().getNumeroPedido());

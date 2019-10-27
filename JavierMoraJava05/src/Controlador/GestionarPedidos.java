@@ -254,4 +254,26 @@ public class GestionarPedidos {
         }
         
     }
+    
+    public void modificarPedido(Pedidos pedido)
+    {
+        
+        try
+        {
+            java.sql.Date fechaBase = (java.sql.Date) pedido.getFechaPedido().getTime();
+            
+            resultadoConsulta.updateDate("fecha_ped", fechaBase);
+            resultadoConsulta.updateString("imagen", pedido.getRutaFoto());
+            
+            resultadoConsulta.updateRow();
+        }
+        catch(SQLException e)
+        {
+            
+        }
+        
+        
+    }
+    
+    
 }

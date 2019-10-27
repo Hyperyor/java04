@@ -4,9 +4,12 @@ package VIsta;
 import Controlador.ConexionValidacion;
 import Controlador.GestionarPedidos;
 import Modelo.Pedidos;
+import java.io.*;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 public class VisualizarPedidos extends javax.swing.JPanel {
@@ -14,11 +17,13 @@ public class VisualizarPedidos extends javax.swing.JPanel {
    private VentanaPrincipal venP;
    private Pedidos pedidoActual;
    private GestionarPedidos gestionPedidos;
+   private boolean fechaActualizada=false;
+   private boolean imagenActualizada=false;
     
     public VisualizarPedidos(VentanaPrincipal p) {
         initComponents();
         
-        
+        adaptacionFileChooser();
         venP=p;
     
     }
@@ -218,6 +223,10 @@ public class VisualizarPedidos extends javax.swing.JPanel {
 
     private void jDatePickerFechaPedidodatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDatePickerFechaPedidodatePickerActionPerformed
         
+        pedidoActual.setFechaPedido(obtenerFechaGregorian());
+        
+        //actualizarCampos();
+        
     }//GEN-LAST:event_jDatePickerFechaPedidodatePickerActionPerformed
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
@@ -249,9 +258,22 @@ public class VisualizarPedidos extends javax.swing.JPanel {
 
     private void jButtonCambioImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambioImagenActionPerformed
        
+        jFileChooserImagen.showDialog(this,"Obtener Imagen");
+        
+       
     }//GEN-LAST:event_jButtonCambioImagenActionPerformed
 
     private void jButtonGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarCambiosActionPerformed
+        
+        if(fechaActualizada==true || imagenActualizada==true)
+        {
+            
+            gestionPedidos.modificarPedido(pedidoActual);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Los datos no han sido modificados", "GUARDAR CAMBIOS", JOptionPane.WARNING_MESSAGE);
+        }
         
     }//GEN-LAST:event_jButtonGuardarCambiosActionPerformed
 
@@ -402,6 +424,25 @@ public class VisualizarPedidos extends javax.swing.JPanel {
 
     
     }
+
+    private GregorianCalendar obtenerFechaGregorian() 
+    {
+        return new GregorianCalendar(
+               jDatePickerFechaPedido.getModel().getYear(),
+               jDatePickerFechaPedido.getModel().getMonth(),
+               jDatePickerFechaPedido.getModel().getDay()
+        );
+                
+    }
+
+    private void adaptacionFileChooser()
+    {
+        FileFilter f= new FileNameExtensionFilter("Archivos .dat", "dat");
+        
+         jFileChooserImagen.
+    }
+
+    
 
 
 }

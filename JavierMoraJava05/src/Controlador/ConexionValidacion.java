@@ -2,7 +2,7 @@
 package Controlador;
 
 
-import Modelo.ConsultasPedido;
+
 import java.sql.*;
 
 
@@ -81,10 +81,10 @@ public class ConexionValidacion {
     
     public static boolean realizaStatementValidacion(String pass, String usu) throws SQLException
     {
-        ConsultasPedido consultaUsuarios=new ConsultasPedido();
+        String sentenciaSQL="select * from USUARIOS where password=? and usuario=?";
         
         
-            String sentenciaSQL=consultaUsuarios.getConsultaValidacion();
+           
             //Valido en mysql y machaco porque no vy hacer mas operaciones con él 
             statamentValidacion=conexionBD2.prepareStatement(sentenciaSQL,  ResultSet.CONCUR_UPDATABLE);//Valido en mysql y machaco
             
@@ -125,20 +125,7 @@ public class ConexionValidacion {
         return validadoUsuario;
     }
     
-    public static void abrirConexion()
-    {
-        try{
-            
-            
-            conexionBD2.close();
-             System.out.println("Se han cerrado las conexiones con la bd");
-         }
-         catch(SQLException e)
-         {
-             
-         }
-        
-    }
+    
     
     public static void cerrarConexion()
     {

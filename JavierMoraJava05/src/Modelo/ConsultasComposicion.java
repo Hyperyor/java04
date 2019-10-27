@@ -1,14 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
 
-/**
- *
- * @author javier
- */
+import java.util.ArrayList;
+
+
 public class ConsultasComposicion {
     
+     private String consultasComposicion="select * from composicion";
+     private Composicion producto;
+     private ArrayList<Composicion> listaProducto;
+     
+     public ConsultasComposicion()
+     {
+         
+         
+     }
+
+    public String getConsultasComposicion() {
+        return consultasComposicion;
+    }
+
+    public void setConsultasComposicion(String consultasComposicion) {
+        this.consultasComposicion = consultasComposicion;
+    }
+     
+     
 }
