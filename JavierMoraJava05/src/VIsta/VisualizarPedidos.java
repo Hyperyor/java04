@@ -8,6 +8,7 @@ import java.io.*;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -258,8 +259,14 @@ public class VisualizarPedidos extends javax.swing.JPanel {
 
     private void jButtonCambioImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambioImagenActionPerformed
        
-        jFileChooserImagen.showDialog(this,"Obtener Imagen");
+        adaptacionFileChooser();
         
+        int seleccion= jFileChooserImagen.showDialog(this,"Obtener Imagen");
+        
+        if(seleccion==JFileChooser.APPROVE_OPTION)
+        {
+            guardarEnCarpetaImagenes();
+        }
        
     }//GEN-LAST:event_jButtonCambioImagenActionPerformed
 
@@ -437,9 +444,25 @@ public class VisualizarPedidos extends javax.swing.JPanel {
 
     private void adaptacionFileChooser()
     {
-        FileFilter f= new FileNameExtensionFilter("Archivos .dat", "dat");
+        String [] fil={"jpeg","jpg","gif","png"};
+         FileNameExtensionFilter filtro= new FileNameExtensionFilter("Imagenes", fil);
+         
+        jFileChooserImagen.setFileFilter(filtro);
+        jFileChooserImagen.setAcceptAllFileFilterUsed(false);
         
-         jFileChooserImagen.
+        
+        
+    }
+
+    private void guardarEnCarpetaImagenes() 
+    {
+        String ruta=jFileChooserImagen.getCurrentDirectory().getPath();
+        
+        File copia=new File(ruta);
+       // File destino=new File("src/imagenes/"+pedidoActual.getNumeroPedido()+jFileChooserImagen.);
+        //nuevaImagen.renameTo("src/imagenes");
+        
+        //jLabelImagen.set
     }
 
     
