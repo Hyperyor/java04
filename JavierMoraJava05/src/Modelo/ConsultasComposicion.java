@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class ConsultasComposicion {
     
-     private String consultasComposicion="select * from composicion";
+     private String consultasComposicion="select * from composicion where pedComposicion=?";
      private Composicion producto;
      private ArrayList<Composicion> listaProducto;
      

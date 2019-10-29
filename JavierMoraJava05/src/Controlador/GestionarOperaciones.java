@@ -1,6 +1,8 @@
 
 package Controlador;
 
+import java.util.*;
+
 
 public class GestionarOperaciones {
     
@@ -12,9 +14,9 @@ public class GestionarOperaciones {
         
     }
     
-   /* public Object todasComposiciones(String)
+   /* public ArrayList todasComposiciones()
     {
-        
+        //ArrayList comosicionesPedido=
         
         
     }*/

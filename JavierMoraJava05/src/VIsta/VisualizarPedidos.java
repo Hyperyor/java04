@@ -5,6 +5,9 @@ import Controlador.ConexionValidacion;
 import Controlador.GestionarPedidos;
 import Modelo.Pedidos;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -456,9 +459,34 @@ public class VisualizarPedidos extends javax.swing.JPanel {
 
     private void guardarEnCarpetaImagenes() 
     {
+        File copia=jFileChooserImagen.getSelectedFile();
+        
+        
+        if(copia!=null)
+        {
+            try
+            {
+                //definimos el destino del fichero
+                String destino="src/imagenes/"+pedidoActual.getUsuPedidos();
+                Path dest=Paths.get(destino);
+                //definimos el origen
+                String origen=copia.getPath();
+                Path orig=Paths.get(origen);
+                //copiamos
+                Files.copy(orig, dest);
+            }
+            catch(IOException e)
+            {
+                
+            }
+            
+            
+            
+            
+        }
         String ruta=jFileChooserImagen.getCurrentDirectory().getPath();
         
-        File copia=new File(ruta);
+        //File copia=new File(ruta);
        // File destino=new File("src/imagenes/"+pedidoActual.getNumeroPedido()+jFileChooserImagen.);
         //nuevaImagen.renameTo("src/imagenes");
         
